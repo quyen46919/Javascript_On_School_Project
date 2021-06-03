@@ -60,5 +60,104 @@ body{
 #canvas{
     /* width: 100%;
     height: 100%; */
-    border: 1px solid rgb(163, 236, 241)
+    border: 1px solid rgb(163, 236, 241);
+    opacity: 0.8;
+}
+
+
+/* popup */
+
+.container {
+    position: relative;
+}
+.content {
+    position: absolute;
+    top: 215px;
+    left: 25px;
+}
+h2 {
+    font-size: 600;
+    margin-bottom: 10px;
+    color: #333;
+    transform: translateY(-39px);
+    text-align: center;
+}
+.content img{
+    max-width: 100%;
+    display: block;
+}
+a{
+    position: relative;
+    padding: 5px 20px;
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #fff;
+    background: rgb(56, 55, 55);
+    bottom: 86%;
+    border-radius: 3px;
+}
+ 
+.paint.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+#popup{
+    overflow: hidden;
+    position: fixed;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 50px;
+    box-shadow: 0 5px 30px rgb(0 0 0 / 30%);
+    background: #fff;
+    border-radius: 10px;
+    width: 50%;
+    height: 180px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+    
+}
+#popup.active{
+    visibility: visible;
+    opacity: 1;
+    transition: 0.5s;
+    top: 30%;
+    z-index: 1;
+}
+.slider {
+    width: 100%;
+    height: 260px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-28px);
+}
+.image {
+    cursor: pointer;
+    width: 50%;
+    height: 47%;
+    margin-right: 10px;
+    overflow: hidden;
+    border-radius: 10px;
+    transform: translateY(-55px);
+    border: 1px solid #6e6e6e;
+}
+.image:hover {
+    transform: translateY(-60px);
+    transition: 0.5s;
+}
+img{
+    width: 100%;  
+}
+.board-paint {
+    position: absolute;
+    width: 100%;
+    height: 700px;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: 65%;
+    filter: blur(3px);
 }
