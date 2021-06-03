@@ -7,10 +7,12 @@ const board_paint = document.querySelector('.board-paint');
 // VARIABLES
 let draw_color = 'black';
 let draw_width = '10';
+let bd_btn = '';
 let is_drawing = false;
 let start_background_color = 'white';
 let restore_array = [];
 let index = -1;
+let isCheckBtn = false;
 
 // MAKE CANVAS
 canvas.width = window.innerWidth;
@@ -21,12 +23,17 @@ context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 // funtions
-function setBdBoardPaint(imgUrl) {
-    console.log(imgUrl);
 
-    if (imgUrl) {
+function setBgBoardPaint(imgUrl) {
+    if (imgUrl === '') {
+        isCheckBtn = false;
+        board_paint.style.backgroundImage = `url(${imgUrl})`;
+    } else {
+        isCheckBtn = true;
         board_paint.style.backgroundImage = `url(${imgUrl})`;
     }
+    changeBgCanvas(imgUrl);
+    handleBtnPaintDefault();
 }
 function start(e) {
     is_drawing = true;
@@ -81,8 +88,10 @@ function undo() {
 }
 
 function handleImageOnCanvas(img) {
-    setBdBoardPaint(img);
-    toggle();
+    setBgBoardPaint(img);
+    if (img != '') {
+        toggle();
+    }
 }
 
 // add event to call functions

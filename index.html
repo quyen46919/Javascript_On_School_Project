@@ -5,14 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" >
-        <div class="content">
-            <a href="#" onclick="toggle()">Vẽ Theo Mẫu</a>
-        </div>
-    </div> 
     <div id="popup">
             <h2>Bạn Có Muốn Chọn Ảnh Để Vẽ Không 🥰</h2>
             <div class="slider">
@@ -28,13 +24,13 @@
                 <div class="slide image" onclick="handleImageOnCanvas('https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg')">
                     <img src="https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg" alt="">
                 </div>
-              
             </div>
             <a href="#" onclick="toggle()">Close</a>
     </div>
     <div class="paint" id="blur">
         <div class="paint__option">
             <div class="paint__direc">
+                <button id="default" onclick="toggle()">Vẽ Theo Mẫu</button>
                 <button id="undo">Quay lại</button>
                 <button id="clear">Làm mới</button>
             </div>
@@ -44,18 +40,18 @@
             <div class="paint__change-color">
                 ĐỔI MÀU BÚT
             </div>
+          
         </div>
         <div class="paint__canvas">
-            <div class="board-paint">
-                
+            <div class="board-paint"> 
             </div>
             <canvas id="canvas">
-
             </canvas>
+            <div id="icon-canvas">
+                <i class="fas fa-undo"></i>
+            </div>
         </div>
     </div>
-
-
     <!-- JAVASCRIPT LINK-->
     <script src="canvas.js"></script>
     <script src="resizePen.js"></script>
