@@ -3,3 +3,62 @@ body{
     margin: 0;
     padding: 0;
 }
+:root{
+    --option-width: 200px;
+}
+/* ------------------------------------------------------- */
+/* general styles */
+.paint{
+    width: 100%;
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+}
+/* ------------------------------------------------------ */
+/* option and option child styles */
+.paint__option{
+    width: var(--option-width);
+    height: 100%;
+    background-color: wheat;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+    padding: 1rem;
+    gap: 1rem;
+}
+.paint__direc{
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.paint__direc button{
+    height: 40px;
+    width: 100%;
+    cursor: pointer;
+    background-color: rgb(28, 163, 51);
+    color: white;
+    border-radius: 3px;
+    border: none;
+    transition: all .25s;
+}
+.paint__direc button:hover{
+    background-color: rgb(16, 133, 35);
+}
+.paint__direc button:last-child{
+    background-color: rgb(26, 132, 202);
+}
+.paint__direc button:last-child:hover{
+    background-color: rgb(15, 118, 187);
+}
+/* ---------------------------------------------------- */
+/* canvas styles */
+.paint__canvas{
+    width: calc(100vw - var(--option-width));
+    height: 100%;
+}
+#canvas{
+    /* width: 100%;
+    height: 100%; */
+    border: 1px solid rgb(163, 236, 241)
+}

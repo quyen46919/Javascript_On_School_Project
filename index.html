@@ -8,8 +8,29 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="paint">
+        <div class="paint__option">
+            <div class="paint__direc">
+                <button id="undo">Quay lại</button>
+                <button id="clear">Làm mới</button>
+            </div>
+            <div class="paint__pen-size">
+                PHẦN NÀY ĐỂ THAY ĐỔI KÍCH CỠ CỦA BÚT
+            </div>
+            <div class="paint__change-color">
+                ĐỔI MÀU BÚT
+            </div>
+        </div>
+        <div class="paint__canvas">
+            <canvas id="canvas">
 
+            </canvas>
+        </div>
+    </div>
+
+
+    <!-- JAVASCRIPT LINK-->
+    <script src="canvas2.js"></script>
     <script src="resizePen.js"></script>
     <script src="changeColor.js"></script>
     <script src="patternDrawing.js"></script>
