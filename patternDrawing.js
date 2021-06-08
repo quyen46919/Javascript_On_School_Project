@@ -47,4 +47,4 @@ function onloadPopup() {
     blur.classList.toggle('active');
     popup.classList.toggle('active');
 }
-onloadPopup();
+// onloadPopup();

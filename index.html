@@ -28,28 +28,51 @@
             <a href="#" onclick="toggle()">Close</a>
     </div>
     <div class="paint" id="blur">
-        <div class="paint__option">
-            <div class="paint__direc">
-                <button id="default" onclick="toggle()">Vẽ Theo Mẫu</button>
-                <button id="undo">Quay lại</button>
-                <button id="clear">Làm mới</button>
-            </div>
-            <div class="paint__pen-size">
-                PHẦN NÀY ĐỂ THAY ĐỔI KÍCH CỠ CỦA BÚT
-            </div>
-            <div class="paint__change-color">
-                <canvas id="paint__change-color-picker"></canvas>
-            </div>
-          
+        <div class="paint__header">
+            <h1>Painting app</h1>
         </div>
-        <div class="paint__canvas">
-            <div class="board-paint"> 
+        <div class="paint__main-part">
+            <div class="paint__options-canvas">
+                <div class="paint__direc">
+                    <div class="paint__history">
+                        <button id="undo">
+                            <i class="fas fa-undo"></i>
+                            Quay lại
+                        </button>
+                        <button id="clear">
+                            <i class="fas fa-eraser"></i>
+                            Làm mới
+                        </button>
+                    </div>
+                    <div class="paint__draw">
+                        <button id="default" onclick="toggle()">
+                            <i class="fas fa-broom"></i>
+                            Vẽ Theo Mẫu
+                        </button>
+                    </div>
+                </div>
+                <div class="paint__canvas">
+                    <!-- <div class="board-paint"> 
+                    </div> -->
+                    <canvas id="canvas"></canvas>
+                    <!-- <div id="icon-canvas">
+                        <i class="fas fa-undo"></i>
+                    </div> -->
+                </div>
             </div>
-            <canvas id="canvas">
-            </canvas>
-            <div id="icon-canvas">
-                <i class="fas fa-undo"></i>
+            <div class="paint__option">
+                <div class="paint__pen-size">
+                    PHẦN NÀY ĐỂ THAY ĐỔI KÍCH CỠ CỦA BÚT
+                </div>
+                <div class="paint__pen-material">
+                    PHẦN NÀY ĐỂ THAY ĐỔI CHẤT LIỆU BÚT
+                </div>
+                <div class="paint__change-color">
+                    <p class="title">CHỌN MÀU</p>
+                    <canvas id="paint__change-color-picker"></canvas>
+                </div>
             </div>
+            
         </div>
     </div>
     <!-- JAVASCRIPT LINK-->

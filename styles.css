@@ -2,9 +2,19 @@ body{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Roboto';
+
 }
 :root{
     --option-width: 200px;
+    --header-color: rgb(54,57,65);
+    --text-color: rgb(255,255,255);
+    --light-white: rgb(240,242,243);
+    --gray: rgb(180,183,181);
+    --basic-height: 60px;
+    --canvas-size: 80%;
+    --button-hover-color: rgb(219,221,227);
+    --title-color: rbg(0,168,243);
 }
 /* ------------------------------------------------------- */
 /* general styles */
@@ -13,10 +23,40 @@ body{
     height: 100vh;
     overflow-x: hidden;
     display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
+.paint button{
+    height: 100%;
+    width: 150px;
+    background-color: transparent;
+    border: none;
+    box-sizing: border-box;
+    padding: 0 1rem;
+    transition: all .25s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0 0.5rem;
+}
+.paint button:hover{
+    background-color: var(--button-hover-color);
+}
+/* ---------------------------------- */
+/* paint header */
+.paint__header{
+    width: 100%;
+    height: var(--basic-height);
+    background-color: var(--header-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* ------------------------------------------------------ */
 /* option and option child styles */
-.paint__option{
+/* .paint__option{
     width: var(--option-width);
     height: 100%;
     background-color: wheat;
@@ -26,13 +66,9 @@ body{
     box-sizing: border-box;
     padding: 1rem;
     gap: 1rem;
-}
-.paint__direc{
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-}
-.paint__direc button{
+} */
+
+/* .paint__direc button{
     height: 40px;
     width: 100%;
     cursor: pointer;
@@ -62,20 +98,76 @@ body{
 }
 .paint__direc button.btn-default:hover{
     background-color: rgb(19, 174, 164);
+} */
+
+/* --------------------------------------------------- */
+/* main part - styles */
+.paint__main-part{
+    height: calc(100vh - var(--basic-height));
+    width: 100%;
+    background-color: var(--gray);
+    display: flex;
 }
 /* ---------------------------------------------------- */
-/* canvas styles */
+/* canvas, direc and options styles */
+.paint__options-canvas{
+    display: flex;
+    flex-direction: column;
+    width: var(--canvas-size);
+    height: 100%;
+    background-color: var(--gray);
+}
+.paint__history,
+.paint__draw{
+    height: 100%;
+    width: auto;
+    display: flex;
+}
+.paint__direc{
+    height: var(--basic-height);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 0.2rem;
+    background-color: var(--light-white);
+}
 .paint__canvas{
-    width: calc(100vw - var(--option-width));
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
 }
 #canvas{
-    /* width: 100%;
-    height: 100%; */
-    border: 1px solid rgb(163, 236, 241);
-    opacity: 0.8;
+
 }
-.board-paint {
+.paint__option{
+    width: calc(100% - var(--canvas-size));
+    height: 100%;
+    background-color: var(--light-white);
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+.paint__pen-size{
+    flex: 1;
+    width: 100%;
+}
+.paint__pen-material{
+    flex: 1;
+    width: 100%;
+}
+.paint__change-color{
+    flex: 2;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+#paint__change-color-picker{
+    border: 3px solid rgba(15, 15, 15, 0.2);
+    cursor: pointer;
+}
+/* .board-paint {
     position: absolute;
     width: 100%;
     height: 700px;
@@ -83,7 +175,7 @@ body{
     background-repeat: no-repeat;
     background-size: 65%;
     filter: blur(3px);
-}
+} */
 
 /* popup */
 
@@ -188,10 +280,4 @@ img{
 }
 #icon-canvas i:active{
     color: #848383;
-}
-#paint__change-color-picker{
-    border: 3px solid rgba(15, 15, 15, 0.2);
-    cursor: pointer;
-    /* width: 100%;
-    height: 100px; */
 }
