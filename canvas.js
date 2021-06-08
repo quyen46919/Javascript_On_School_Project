@@ -6,7 +6,7 @@ const board_paint = document.querySelector('.board-paint');
 
 // VARIABLES
 let draw_color = 'black';
-let draw_width = '10';
+let draw_width = '4';
 let bd_btn = '';
 let is_drawing = false;
 let start_background_color = 'white';
@@ -15,8 +15,8 @@ let index = -1;
 let isCheckBtn = false;
 
 // MAKE CANVAS
-canvas.width = window.innerWidth;
-canvas.height = 700;
+canvas.width = 1000;
+canvas.height = 500;
 
 let context = canvas.getContext('2d');
 context.fillStyle = start_background_color;
