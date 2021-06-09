@@ -1,4 +1,5 @@
 
+
 class Picker {
     constructor(target, width, height){
        this.target = target;
@@ -106,3 +107,4 @@ picker.onChange((color)=>{
     draw_color = `rgb(${color.r}, ${color.g},${color.b})`
 
 })
+
