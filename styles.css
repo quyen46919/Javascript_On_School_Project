@@ -123,6 +123,9 @@ body{
     width: auto;
     display: flex;
 }
+#default{
+    cursor: pointer;
+}
 .paint__direc{
     height: var(--basic-height);
     width: 100%;
@@ -167,49 +170,23 @@ body{
     border: 3px solid rgba(15, 15, 15, 0.2);
     cursor: pointer;
 }
-/* .board-paint {
+.paint__board{
     position: absolute;
-    width: 100%;
-    height: 700px;
-    z-index: -1;
+    width: 1000px;
+    height: 500px;
+    z-index: 0;
+    background-color: #fff;
     background-repeat: no-repeat;
     background-size: 65%;
-    filter: blur(3px);
-} */
-
+    filter: blur(1px);
+    display: flex;
+    justify-content: center;
+}
+#canvas {
+    opacity: 0.8;
+}
 /* popup */
 
-.container {
-    position: relative;
-}
-.content {
-    position: absolute;
-    top: 215px;
-    left: 25px;
-}
-h2 {
-    font-size: 600;
-    margin-bottom: 10px;
-    color: #333;
-    transform: translateY(-39px);
-    text-align: center;
-}
-.content img{
-    max-width: 100%;
-    display: block;
-}
-a{
-    position: relative;
-    padding: 5px 20px;
-    display: inline-block;
-    margin-top: 20px;
-    text-decoration: none;
-    color: #fff;
-    background: rgb(56, 55, 55);
-    bottom: 86%;
-    border-radius: 3px;
-}
- 
 .paint.active{
     filter: blur(20px);
     pointer-events: none;
@@ -218,53 +195,200 @@ a{
 #popup{
     overflow: hidden;
     position: fixed;
-    top: -10%;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 50px;
+    transform: translate(-50%, -150%);
+    padding: 50px 60px;
     box-shadow: 0 5px 30px rgb(0 0 0 / 30%);
     background: #fff;
     border-radius: 10px;
-    width: 50%;
-    height: 180px;
+    width: 55%;
+    height: 235px;
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
-    
+    z-index: 1;
 }
 #popup.active{
     visibility: visible;
     opacity: 1;
     transition: 0.5s;
-    top: 30%;
+    top: 50%;
     z-index: 1;
-}
-.slider {
-    width: 100%;
-    height: 260px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-28px);
-}
-.image {
-    cursor: pointer;
-    width: 50%;
-    height: 47%;
-    margin-right: 10px;
-    overflow: hidden;
-    border-radius: 10px;
-    transform: translateY(-55px);
-    border: 1px solid #6e6e6e;
-}
-.image:hover {
-    transform: translateY(-60px);
-    transition: 0.5s;
-}
-img{
-    width: 100%;  
+    transform: translate(-50%, -70%);
 }
 
+.popup__title{
+    margin-bottom: 10px;
+    color: #333;
+    transform: translateY(-60px);
+    text-align: center;
+    width: 100%;
+}
+.hr-1 {
+    transform: translateY(-60px);
+}
+.hr-2 {
+    transform: translateY(-57px);
+}
+.title{
+
+}
+.popup__content{
+    display: flex;
+    width: 100%;
+    height: 72%;
+    transform: translateY(-60px);
+    justify-content: space-between;
+}
+.popup__slider{
+    width: 72%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.popup__slider .slide {
+    cursor: pointer;
+    width: 32%;
+    height: 100%;
+    margin-right: 10px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow:1px 2px 3px rgba(0, 0, 0, 0.435);
+    
+}
+.popup__slider .slide .txt .fas.fa-check {
+    font-size: 60px;
+    color: #19ce20;
+    text-align: center;
+    transform: translateY(35px);
+}
+.fas.fa-check.active {
+    display: none;
+}
+.popup__slider .mr {
+    margin: inherit;
+}
+.popup__slider .slide img{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+.popup__slider .slide img:hover{
+    opacity: 0.5;
+}
+
+.popup__slider .slide .txt {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.347);
+    position: absolute;
+    bottom: 50px;
+    text-align: center;
+    color: white;
+    padding:10px;
+    box-sizing: border-box;
+    opacity: 0;
+}
+.popup__slider .slide.active {
+    border: 4px solid rgb(0, 171, 26);
+}
+.popup__slider .slide .txt h3 {
+    transform: translateY(50px);
+}
+.popup__slider .slide:hover div.txt {
+    opacity: 1;
+    transform: translateY(50px);
+    transition:ease-in-out 0.5s;
+}
+ 
+.popup__slider .slide:hover img {
+    transform: scale(1.2);
+    transition: all ease-in-out 0.5s;
+}
+.popup__content .popup__upload {
+    width: 22%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:1px 2px 3px rgba(0, 0, 0, 0.435);
+    overflow: hidden;
+}
+.popup__content .popup__upload.active{
+    border: 4px solid rgb(0, 171, 26);
+}
+#displayImg {
+    width: 100%;
+    height: 100%;
+    text-indent: -10000px;
+}
+.paint__canvas .paint__board .paint__img{
+    width:auto; 
+    height:100%;
+    
+}
+.upload{
+    display: none;
+    opacity: 0;
+    visibility: none;
+}
+.popup__content .popup__upload:hover {
+    background-color:rgba(202, 201, 201, 0.265);
+    transition: 0.25s;
+}
+.popup__content .popup__upload:active {
+    background-color:rgba(91, 91, 91, 0.374);
+    transition: 0.25s;
+}
+.popup__content .popup__upload:active .popup__photos {
+    color: #fff;
+}
+.popup__content .popup__upload .popup__photos {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    font-size: 33px;
+    color: #4b4c4d;
+}
+.popup__btn-optional {
+    position: absolute;
+    width: 15%;
+    height: 52px;
+    bottom: 4%;
+    left: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+.popup__btn-optional .popup__btn {
+    width: 52px;
+    height: 100%;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.25s;
+    position: relative;
+}
+.popup__btn-optional .popup__btn.cancel--styles:hover{
+    background-color: rgb(236, 4, 4);
+}
+.popup__btn-optional .popup__btn.choose--styles:hover{
+    background-color: rgb(42, 218, 7);
+}
+.cancel--styles{
+    background-color: rgba(181, 2, 2, 0.537);
+}
+.choose--styles{
+    background-color: rgba(34, 181, 5, 0.53);
+}
+
+.popup__btn-optional .popup__btn .fas {
+    position: absolute;
+    left: 26%;
+    top: 25%;
+    font-size: 25px;
+    color: rgb(243, 242, 242);
+}
 /* icon chage background canvas */
 #icon-canvas {
     cursor: pointer;
