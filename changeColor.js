@@ -11,7 +11,7 @@ class Picker {
        this.contexts = this.target.getContext("2d");
 
        //circle
-       this.pickerCircle = {x : 10, y : 10 , width : 5, height: 5};
+       this.pickerCircle = {x : 10, y : 10 , width : 7, height: 7};
 
        this.listenForEvents();
    }
@@ -96,7 +96,7 @@ onChange(callback) {
 }
 }
 
-let picker = new Picker(document.getElementById("paint__change-color-picker"), 170, 170);
+let picker = new Picker(document.getElementById("paint__change-color-picker"), 350, 350);
 
 //Draw
 setInterval(() =>picker.draw(), 1); 
