@@ -25,12 +25,13 @@ class Picker {
            this.width,0);
        
        //color stops
-       gradient.addColorStop(0, "rgb(255, 0, 0)");
+       gradient.addColorStop(0.03, "rgb(255, 0, 0)");
        gradient.addColorStop(0.15, "rgb(255, 0, 255)");
        gradient.addColorStop(0.33, "rgb(0, 0, 255)");
        gradient.addColorStop(0.49, "rgb(0, 255, 255)");
        gradient.addColorStop(0.67, "rgb(0, 255, 0)");
        gradient.addColorStop(0.84, "rgb(255, 255, 0)");
+       gradient.addColorStop(0.95, "rgb(255, 0, 0)");
        gradient.addColorStop(0.1, "rgb(255, 0, 0)");
        //Fill it
        this.contexts.fillStyle = gradient;
