@@ -1,8 +1,23 @@
 // GET DOM
-const canvas = document.querySelector('#canvas');
-const clear_btn = document.querySelector('#clear');
-const undo_btn = document.querySelector('#undo');
-const board_paint = document.querySelector('.board-paint');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const canvas = $('#canvas');
+const clear_btn = $('#clear');
+const undo_btn = $('#undo');
+const board_paint = $('.board-paint');
+const blur = $('#blur');
+const popup = $('#popup');
+const btn_paintDf = $('#default');
+const iconCanvas = $('#icon-canvas');
+const iconCheck = $$('.fa-check');
+const txtEle = $$('.txt');
+const slideEle = $$('.slide');
+const checkedIcon = $('#checked');
+const paint__img = $('.paint__img');
+const displayImg = $('#displayImg');
+const plusIcon = $('.fa-plus');
+const popup__upload = $('.popup__upload');
 
 // VARIABLES
 let draw_color = 'black';
@@ -26,14 +41,17 @@ context.fillRect(0, 0, canvas.width, canvas.height);
 
 function setBgBoardPaint(imgUrl) {
     if (imgUrl === '') {
-        isCheckBtn = false;
-        board_paint.style.backgroundImage = `url(${imgUrl})`;
+        // isCheckBtn = false;
+        paint__img.src = imgUrl;
+    } else if (typeof imgUrl == 'object') {
+        // isCheckBtn = true;
+        paint__img.src = URL.createObjectURL(imgUrl);
     } else {
-        isCheckBtn = true;
-        board_paint.style.backgroundImage = `url(${imgUrl})`;
+        // isCheckBtn = true;
+        paint__img.src = imgUrl;
     }
-    changeBgCanvas(imgUrl);
-    handleBtnPaintDefault();
+    // changeBgCanvas(imgUrl);
+    // handleBtnPaintDefault();
 }
 function start(e) {
     is_drawing = true;
@@ -87,13 +105,25 @@ function undo() {
     }
 }
 
-function handleImageOnCanvas(img) {
-    setBgBoardPaint(img);
-    if (img != '') {
-        toggle();
-    }
+function handleImageOnCanvas(i, img) {
+    handleSetCheckedImg(i, slideEle);
+    dispatchImg(img);
 }
-
+function dispatchImg(imgUrl) {
+    console.log(isCheckBtn);
+    checkedIcon.onclick = function (e) {
+        if (isCheckBtn) {
+            console.log(isCheckBtn);
+            isCheckBtn = true;
+            getImgBg(isCheckBtn);
+            setBgBoardPaint(imgUrl);
+            toggle();
+        } else {
+            alert('Bạn Cần Chọn 1 Ảnh Mẫu Để Vẽ 🤗');
+            e.preventDefault();
+        }
+    };
+}
 // add event to call functions
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false);
