@@ -12,7 +12,7 @@ class Picker {
        this.contexts = this.target.getContext("2d");
 
        //circle
-       this.pickerCircle = {x : 10, y : 10 , width : 5, height: 5};
+       this.pickerCircle = {x : 10, y : 10 , width : 7, height: 7};
 
        this.listenForEvents();
    }
@@ -26,12 +26,13 @@ class Picker {
            this.width,0);
        
        //color stops
-       gradient.addColorStop(0, "rgb(255, 0, 0)");
+       gradient.addColorStop(0.03, "rgb(255, 0, 0)");
        gradient.addColorStop(0.15, "rgb(255, 0, 255)");
        gradient.addColorStop(0.33, "rgb(0, 0, 255)");
        gradient.addColorStop(0.49, "rgb(0, 255, 255)");
        gradient.addColorStop(0.67, "rgb(0, 255, 0)");
        gradient.addColorStop(0.84, "rgb(255, 255, 0)");
+       gradient.addColorStop(0.95, "rgb(255, 0, 0)");
        gradient.addColorStop(0.1, "rgb(255, 0, 0)");
        //Fill it
        this.contexts.fillStyle = gradient;
@@ -97,7 +98,7 @@ onChange(callback) {
 }
 }
 
-let picker = new Picker(document.getElementById("paint__change-color-picker"), 170, 170);
+let picker = new Picker(document.getElementById("paint__change-color-picker"), 350, 350);
 
 //Draw
 setInterval(() =>picker.draw(), 1); 
