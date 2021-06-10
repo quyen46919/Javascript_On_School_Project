@@ -1,8 +1,26 @@
 // GET DOM
-const canvas = document.querySelector('#canvas');
-const clear_btn = document.querySelector('#clear');
-const undo_btn = document.querySelector('#undo');
-const board_paint = document.querySelector('.board-paint');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const canvas = $('#canvas');
+const clear_btn = $('#clear');
+const undo_btn = $('#undo');
+const board_paint = $('.board-paint');
+const blur = $('#blur');
+const popup = $('#popup');
+const btn_paintDf = $('#default');
+const iconCanvas = $('#icon-canvas');
+const iconCheck = $$('.fa-check');
+const txtEle = $$('.txt');
+const slideEle = $$('.slide');
+const checkedIcon = $('#checked');
+const paint__img = $('.paint__img');
+const displayImg = $('#displayImg');
+const plusIcon = $('.fa-plus');
+const popup__upload = $('.popup__upload');
+const nextBtn = $('.popup__next');
+const prevBtn = $('.popup__prev');
+const sliderEles = $('.popup__slider');
 
 // VARIABLES
 let draw_color = 'black';
@@ -13,7 +31,8 @@ let start_background_color = 'white';
 let restore_array = [];
 let index = -1;
 let isCheckBtn = false;
-
+let counter = 0;
+let size = slideEle[0].clientWidth + 10;
 // MAKE CANVAS
 canvas.width = 1000;
 canvas.height = 500;
@@ -26,14 +45,17 @@ context.fillRect(0, 0, canvas.width, canvas.height);
 
 function setBgBoardPaint(imgUrl) {
     if (imgUrl === '') {
-        isCheckBtn = false;
-        board_paint.style.backgroundImage = `url(${imgUrl})`;
+        // isCheckBtn = false;
+        paint__img.src = imgUrl;
+    } else if (typeof imgUrl == 'object') {
+        // isCheckBtn = true;
+        paint__img.src = URL.createObjectURL(imgUrl);
     } else {
-        isCheckBtn = true;
-        board_paint.style.backgroundImage = `url(${imgUrl})`;
+        // isCheckBtn = true;
+        paint__img.src = imgUrl;
     }
-    changeBgCanvas(imgUrl);
-    handleBtnPaintDefault();
+    // changeBgCanvas(imgUrl);
+    // handleBtnPaintDefault();
 }
 function start(e) {
     is_drawing = true;
@@ -86,14 +108,6 @@ function undo() {
         context.putImageData(restore_array[index], 0, 0);
     }
 }
-
-function handleImageOnCanvas(img) {
-    setBgBoardPaint(img);
-    if (img != '') {
-        toggle();
-    }
-}
-
 // add event to call functions
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false);
