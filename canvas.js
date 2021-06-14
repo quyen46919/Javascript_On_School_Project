@@ -18,10 +18,6 @@ const paint__img = $('.paint__img');
 const displayImg = $('#displayImg');
 const plusIcon = $('.fa-plus');
 const popup__upload = $('.popup__upload');
-const nextBtn = $('.popup__next');
-const prevBtn = $('.popup__prev');
-const sliderEles = $('.popup__slider');
-
 
 // VARIABLES
 let draw_color = 'black';
@@ -32,8 +28,7 @@ let start_background_color = 'white';
 let restore_array = [];
 let index = -1;
 let isCheckBtn = false;
-let counter = 0;
-let size = slideEle[0].clientWidth + 10;
+
 // MAKE CANVAS
 canvas.width = 1000;
 canvas.height = 500;
@@ -129,7 +124,6 @@ function dispatchImg(imgUrl) {
         }
     };
 }
-
 // add event to call functions
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false);

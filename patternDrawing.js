@@ -1,27 +1,5 @@
 // Phần này của Long
 
-
-function handleImageOnCanvas(i, img) {
-    handleSetCheckedImg(i, slideEle);
-    dispatchImg(img);
-}
-function dispatchImg(imgUrl) {
-    console.log(isCheckBtn);
-    checkedIcon.onclick = function (e) {
-        if (isCheckBtn) {
-            console.log(isCheckBtn);
-            isCheckBtn = true;
-            getImgBg(isCheckBtn);
-            setBgBoardPaint(imgUrl);
-            toggle();
-            clearCanvas();
-        } else {
-            alert('Bạn Cần Chọn 1 Ảnh Mẫu Để Vẽ 🤗');
-            e.preventDefault();
-        }
-    };
-}
-
 function handleSetCheckedImg(i, element) {
     popup__upload.classList.remove('active');
     for (let j = 0; j < element.length; j++) {
@@ -44,7 +22,6 @@ function toggle() {
     getImgBg();
     clearBgImgDisplayImg();
 }
-
 function getImgBg() {
     document
         .querySelector('input[type="file"]')
@@ -66,7 +43,6 @@ function clearBgImgDisplayImg() {
         slide.classList.remove('active');
     });
 }
-
 function setDefaultDisplayImg(imgImage) {
     displayImg.src = URL.createObjectURL(imgImage);
     plusIcon.style.display = 'none';
@@ -76,7 +52,6 @@ function setDefaultDisplayImg(imgImage) {
     slideEle.forEach((slide) => {
         slide.classList.remove('active');
     });
-
 }
 function setBgBoardPaintDefault() {
     const isSet = confirm('Bạn sẽ phải vẻ lại từ đầu nếu chọn Vẽ Mặc Định 😥');
@@ -85,29 +60,3 @@ function setBgBoardPaintDefault() {
         clearCanvas();
     }
 }
-
-nextBtn.addEventListener('click', () => {
-    if (counter <= slideEle.length / 3) {
-        counter += 3;
-        console.log(size);
-        sliderEles.style.transform = 'translateX(-' + size * counter + 'px)';
-        checkIconMove(counter);
-    }
-});
-
-prevBtn.addEventListener('click', () => {
-    if (counter >= 0) {
-        counter -= 3;
-        sliderEles.style.transform = 'translateX(-' + size * counter + 'px)';
-        console.log(counter);
-    }
-});
-}
-function setBgBoardPaintDefault() {
-    const isSet = confirm('Bạn sẽ phải vẻ lại từ đầu nếu chọn Vẽ Mặc Định 😥');
-    if (isSet === true) {
-        setBgBoardPaint('');
-        clearCanvas();
-    }
-}
-
