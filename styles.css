@@ -123,6 +123,9 @@ body{
     width: auto;
     display: flex;
 }
+#default{
+    cursor: pointer;
+}
 .paint__direc{
     height: var(--basic-height);
     width: 100%;
@@ -167,9 +170,11 @@ body{
     border: 3px solid rgba(15, 15, 15, 0.2);
     cursor: pointer;
 }
+
 #default{
     cursor: pointer;
 }
+
 .paint__board{
     position: absolute;
     width: 1000px;
@@ -186,7 +191,11 @@ body{
     opacity: 0.8;
 }
 
-/* popup */
+.paint.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
 
 #popup{
     overflow: hidden;
@@ -227,10 +236,17 @@ body{
 .hr-2 {
     transform: translateY(-57px);
 }
-.title{
 
-}
 .popup__content{
+    display: flex;
+    width: 100%;
+    height: 72%;
+    transform: translateY(-60px);
+    justify-content: space-between;
+}
+.popup__slider{
+    width: 72%;
+    height: 100%;
     display: flex;
     width: 100%;
     height: 72%;
@@ -258,7 +274,6 @@ body{
     position: relative;
     overflow: hidden;
     box-shadow:1px 2px 3px rgba(0, 0, 0, 0.435);
-
 }
 .popup__slider .slide .txt .fas.fa-check {
     font-size: 60px;
@@ -384,6 +399,86 @@ body{
     background-color: rgba(34, 181, 5, 0.53);
 }
 
+ 
+.popup__slider .slide:hover img {
+    transform: scale(1.2);
+    transition: all ease-in-out 0.5s;
+}
+.popup__content .popup__upload {
+    width: 22%;
+    height: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    box-shadow:1px 2px 3px rgba(0, 0, 0, 0.435);
+    overflow: hidden;
+}
+.popup__content .popup__upload.active{
+    border: 4px solid rgb(0, 171, 26);
+}
+#displayImg {
+    width: 100%;
+    height: 100%;
+    text-indent: -10000px;
+}
+.paint__canvas .paint__board .paint__img{
+    width:auto; 
+    height:100%;
+    
+}
+.upload{
+    display: none;
+    opacity: 0;
+    visibility: none;
+}
+.popup__content .popup__upload:hover {
+    background-color:rgba(202, 201, 201, 0.265);
+    transition: 0.25s;
+}
+.popup__content .popup__upload:active {
+    background-color:rgba(91, 91, 91, 0.374);
+    transition: 0.25s;
+}
+.popup__content .popup__upload:active .popup__photos {
+    color: #fff;
+}
+.popup__content .popup__upload .popup__photos {
+    position: absolute;
+    top: 40%;
+    left: 43%;
+    font-size: 33px;
+    color: #4b4c4d;
+}
+.popup__btn-optional {
+    position: absolute;
+    width: 15%;
+    height: 52px;
+    bottom: 4%;
+    left: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+.popup__btn-optional .popup__btn {
+    width: 52px;
+    height: 100%;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: 0.25s;
+    position: relative;
+}
+.popup__btn-optional .popup__btn.cancel--styles:hover{
+    background-color: rgb(236, 4, 4);
+}
+.popup__btn-optional .popup__btn.choose--styles:hover{
+    background-color: rgb(42, 218, 7);
+}
+.cancel--styles{
+    background-color: rgba(181, 2, 2, 0.537);
+}
+.choose--styles{
+    background-color: rgba(34, 181, 5, 0.53);
+}
+
 .popup__btn-optional .popup__btn .fas {
     position: absolute;
     left: 26%;
@@ -391,7 +486,6 @@ body{
     font-size: 25px;
     color: rgb(243, 242, 242);
 }
-
 .popup__move {
     display: flex;
     justify-content: space-between;
@@ -447,6 +541,7 @@ body{
 .hr-3 {
     margin-right: 6px;
 }
+
 /* icon chage background canvas */
 #icon-canvas {
     cursor: pointer;

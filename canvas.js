@@ -22,6 +22,7 @@ const nextBtn = $('.popup__next');
 const prevBtn = $('.popup__prev');
 const sliderEles = $('.popup__slider');
 
+
 // VARIABLES
 let draw_color = 'black';
 let draw_width = '4';
@@ -108,6 +109,27 @@ function undo() {
         context.putImageData(restore_array[index], 0, 0);
     }
 }
+
+function handleImageOnCanvas(i, img) {
+    handleSetCheckedImg(i, slideEle);
+    dispatchImg(img);
+}
+function dispatchImg(imgUrl) {
+    console.log(isCheckBtn);
+    checkedIcon.onclick = function (e) {
+        if (isCheckBtn) {
+            console.log(isCheckBtn);
+            isCheckBtn = true;
+            getImgBg(isCheckBtn);
+            setBgBoardPaint(imgUrl);
+            toggle();
+        } else {
+            alert('Bạn Cần Chọn 1 Ảnh Mẫu Để Vẽ 🤗');
+            e.preventDefault();
+        }
+    };
+}
+
 // add event to call functions
 canvas.addEventListener('touchstart', start, false);
 canvas.addEventListener('touchmove', draw, false);

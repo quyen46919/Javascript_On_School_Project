@@ -1,5 +1,6 @@
 // Phần này của Long
 
+
 function handleImageOnCanvas(i, img) {
     handleSetCheckedImg(i, slideEle);
     dispatchImg(img);
@@ -39,6 +40,7 @@ function handleSetCheckedImg(i, element) {
 function toggle() {
     blur.classList.toggle('active');
     popup.classList.toggle('active');
+    clearCanvas();
     getImgBg();
     clearBgImgDisplayImg();
 }
@@ -74,6 +76,7 @@ function setDefaultDisplayImg(imgImage) {
     slideEle.forEach((slide) => {
         slide.classList.remove('active');
     });
+
 }
 function setBgBoardPaintDefault() {
     const isSet = confirm('Bạn sẽ phải vẻ lại từ đầu nếu chọn Vẽ Mặc Định 😥');
@@ -99,5 +102,12 @@ prevBtn.addEventListener('click', () => {
         console.log(counter);
     }
 });
+}
+function setBgBoardPaintDefault() {
+    const isSet = confirm('Bạn sẽ phải vẻ lại từ đầu nếu chọn Vẽ Mặc Định 😥');
+    if (isSet === true) {
+        setBgBoardPaint('');
+        clearCanvas();
+    }
+}
 
-// onloadPopup();
