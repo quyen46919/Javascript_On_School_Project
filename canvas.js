@@ -16,18 +16,18 @@ var isCheckBtn = false;
 var draw_width = 10;
 
 // MAKE CANVAS
-canvas.width = 1100;
+canvas.width = 1200;
 canvas.height = 550;
 
 var context = canvas.getContext('2d');
 context.fillStyle = start_background_color;
-// context.fillRect(0, 0, canvas.width, canvas.height);
+context.fillRect(0, 0, canvas.width, canvas.height);
 
 // UNDO AND CLEAR FUNCTION
 function clearCanvas() {
     context.fillStyle = start_background_color;
     context.clearRect(0, 0, canvas.width, canvas.height);
-    // context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillRect(0, 0, canvas.width, canvas.height);
 
     restore_array = [];
     index = -1;
