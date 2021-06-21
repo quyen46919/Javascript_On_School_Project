@@ -7,14 +7,17 @@ body{
 }
 :root{
     --option-width: 200px;
+    --basic-height: 60px;
+    --canvas-size: 80%;
+
     --header-color: rgb(54,57,65);
     --text-color: rgb(255,255,255);
     --light-white: rgb(240,242,243);
-    --gray: rgb(180,183,181);
-    --basic-height: 60px;
-    --canvas-size: 80%;
     --button-hover-color: rgb(219,221,227);
     --title-color: rbg(0,168,243);
+
+    --blue: rgb(45, 143, 189);
+    --gray: rgb(180,183,181);
 }
 /* ------------------------------------------------------- */
 /* general styles */
@@ -137,9 +140,6 @@ body{
     align-items: center;
     height: 100%;
 }
-#canvas{
-
-}
 .paint__option{
     width: calc(100% - var(--canvas-size));
     height: 100%;
@@ -152,10 +152,37 @@ body{
 .paint__pen-size{
     flex: 1;
     width: 100%;
+    color: var(--blue);
+    font-weight: 500;
 }
 .paint__pen-material{
-    flex: 1;
+    height: 100px;
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: var(--blue);
+    font-weight: 500;
+}
+.paint__pen-material--content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.paint__material{
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    padding: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--header-color);
+}
+.paint__material.active{
+    background-color: var(--blue);
+    color: white
 }
 .paint__change-color{
     flex: 2;

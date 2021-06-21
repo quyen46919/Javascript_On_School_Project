@@ -49,8 +49,7 @@ class Picker {
 
        //circle 
        this.contexts.beginPath();
-       this.contexts.arc(this.pickerCircle.x, this.pickerCircle.y,
-   this.pickerCircle.width, 0, Math.PI*2 );
+       this.contexts.arc(this.pickerCircle.x, this.pickerCircle.y, this.pickerCircle.width, 0, Math.PI*2 );
        this.contexts.strokeStyle = "black";
        this.contexts.stroke();
        this.contexts.closePath();
@@ -103,8 +102,6 @@ let picker = new Picker(document.getElementById("paint__change-color-picker"), 1
 setInterval(() =>picker.draw(), 1); 
 
 picker.onChange((color)=>{
- 
     draw_color = `rgb(${color.r}, ${color.g},${color.b})`
-
 })
 

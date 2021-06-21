@@ -62,10 +62,25 @@
             </div>
             <div class="paint__option">
                 <div class="paint__pen-size">
-                    PHẦN NÀY ĐỂ THAY ĐỔI KÍCH CỠ CỦA BÚT
+                    PEN SIZE
                 </div>
                 <div class="paint__pen-material">
-                    PHẦN NÀY ĐỂ THAY ĐỔI CHẤT LIỆU BÚT
+                    PEN MATERIAL
+                    <div class="paint__pen-material--content">
+                        <div class="paint__material paint__material--normal active">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="paint__material paint__material--inkpen">
+                            
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="paint__material paint__material--oil">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="paint__material paint__material--spray">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                    </div>
                 </div>
                 <div class="paint__change-color">
                     <p class="title">CHỌN MÀU</p>
@@ -76,9 +91,16 @@
         </div>
     </div>
     <!-- JAVASCRIPT LINK-->
+    <script src="index.js"></script>
     <script src="canvas.js"></script>
-    <script src="resizePen.js"></script>
     <script src="changeColor.js"></script>
+    <script src="./materialStyles/normalPenStyles.js"></script>
+    <script src="./materialStyles/inkPenStyle.js"></script>   
+    <script src="./materialStyles/oilPalmStyles.js"></script>   
+    <script src="./materialStyles/sprayStyles.js"></script>
+    <script src="./materialStyles/brushStyle.js"></script>
+    <script src="resizePen.js"></script>
     <script src="patternDrawing.js"></script>
 </body>
 </html>
+
