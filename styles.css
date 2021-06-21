@@ -57,52 +57,6 @@ body{
     align-items: center;
 }
 
-/* ------------------------------------------------------ */
-/* option and option child styles */
-/* .paint__option{
-    width: var(--option-width);
-    height: 100%;
-    background-color: wheat;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-sizing: border-box;
-    padding: 1rem;
-    gap: 1rem;
-} */
-
-/* .paint__direc button{
-    height: 40px;
-    width: 100%;
-    cursor: pointer;
-    background-color: rgb(28, 163, 51);
-    color: white;
-    border-radius: 3px;
-    border: none;
-    transition: all .25s;
-}
-.paint__direc button:hover{
-    background-color: rgb(16, 133, 35);
-}
-.paint__direc button:last-child{
-    background-color: rgb(26, 132, 202);
-}
-.paint__direc button:first-child{
-    background-color: rgb(189, 163, 16);
-}
-.paint__direc button:first-child:hover{
-    background-color: rgb(133, 116, 16);
-}
-.paint__direc button:last-child:hover{
-    background-color: rgb(15, 118, 187);
-}
-.paint__direc button.btn-default{
-    background-color: rgb(21, 140, 132);
-}
-.paint__direc button.btn-default:hover{
-    background-color: rgb(19, 174, 164);
-} */
-
 /* --------------------------------------------------- */
 /* main part - styles */
 .paint__main-part{

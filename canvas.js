@@ -21,13 +21,13 @@ canvas.height = 550;
 
 var context = canvas.getContext('2d');
 context.fillStyle = start_background_color;
-context.fillRect(0, 0, canvas.width, canvas.height);
+// context.fillRect(0, 0, canvas.width, canvas.height);
 
 // UNDO AND CLEAR FUNCTION
 function clearCanvas() {
     context.fillStyle = start_background_color;
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    // context.fillRect(0, 0, canvas.width, canvas.height);
 
     restore_array = [];
     index = -1;
