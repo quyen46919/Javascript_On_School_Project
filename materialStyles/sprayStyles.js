@@ -9,7 +9,6 @@ function sprayDraw(){
         context.fillStyle = draw_color;
         context.lineWidth = 100;
         context.beginPath();
-        // context.lineJoin = context.lineCap = 'round';
         context.shadowBlur = 0;
         context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
         
@@ -21,7 +20,6 @@ function sprayDraw(){
             var offsetX = getRandomInt(-radius, radius);
             var offsetY = getRandomInt(-radius, radius);
             context.fillRect(e.clientX + offsetX, e.clientY + offsetY, 1, 1);
-            // context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
             context.lineTo(
                 e.clientX - canvas.offsetLeft,
                 e.clientY - canvas.offsetTop,

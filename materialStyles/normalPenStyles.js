@@ -9,8 +9,6 @@ function normalDraw(){
         context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
         e.preventDefault();
     }
-    // canvas.ontouchstart = start;
-    
 
     canvas.onmousemove = function(e) {
         if (is_drawing) {
@@ -21,13 +19,10 @@ function normalDraw(){
             
             context.strokeStyle = draw_color;
             context.lineWidth = draw_width;
-            // context.lineCap = 'round';
-            // context.lineJoin = 'round';
             context.stroke();
         }
         e.preventDefault();
     }
-    // canvas.ontouchmove = draw; 
 
     canvas.onmouseup = function(e) {
         if (is_drawing) {

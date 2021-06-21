@@ -72,10 +72,8 @@ function inkPenDraw(){
             for (var x = x1; x < x2; x++) {
                 if (steep) {
                     context.fillRect(y, x, inkpen_draw_width , inkpen_draw_width );
-                    // context.stroke();
                 } else {
                     context.fillRect(x, y, inkpen_draw_width , inkpen_draw_width );
-                    // context.stroke();
                 }
     
                 error += de;
