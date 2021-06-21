@@ -10,61 +10,54 @@
     
 </head>
 <body>
+    <!-- show popup -->
     <div id="popup">
         <div class="popup__title">
-            <h2 class="title">Bạn Có Muốn Chọn Ảnh Để Vẽ Không 🥰</h2>
+            <h2 class="title">Bạn Có Muốn Chọn Ảnh Để Vẽ Không</h2>
         </div>
         <hr class="hr-1"/>
         <div class="popup__content">
              <div class="popup__slider">
-                <div class="slide" onclick="handleImageOnCanvas(0 ,'https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png')">
-                    <img src="https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png" alt="">
-                    <div class="txt">
+                <div class="popup__slide" data-url="https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png">
+                    <img class="popup__img" src="https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png" alt="">
+                    <div class="popup__txt">
                         <h3>XE Ô TÔ</h3>
                     </div>
                 </div>
-                <div class="slide" onclick="handleImageOnCanvas(1 ,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU')">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU" alt="">
-                    <div class="txt">
+                <div class="popup__slide" data-url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU">
+                    <img class="popup__img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU" alt="">
+                    <div class="popup__txt">
                         <h3>NGÔI NHÀ</h3>
                     </div>
                 </div>
-                <div class="slide" onclick="handleImageOnCanvas(2 ,'https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg')">
-                    <img src="https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg" alt="">
-                    <div class="txt">
+                <div class="popup__slide" data-url="https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg">
+                    <img class="popup__img" src="https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg" alt="">
+                    <div class="popup__txt">
                         <h3>XE TẢI</h3>
                     </div>
                 </div>
-                <!-- <div class="slide mr" onclick="handleImageOnCanvas(3 ,'https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg')">
-                    <img src="https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg" alt="">
-                    <div class="txt">
-                        <h3>XE LU</h3>
-                        <i class="fas fa-check active"></i>
-                    </div>
-                </div> -->
             </div>
-
-            
+            <!-- upload photos -->
             <label class="popup__upload" for="firstimg">
                 <div class="popup__photos">
-                    <i class="fas fa-plus"></i>
+                    <i class="far fa-file-image" id="file-image"></i>
                 </div> 
                 <input type="file" name="" id="firstimg" class="upload">
                 <img id="displayImg" alt=""></img>
             </label>
-           
-
+        <!-- onclick="toggle()" -->
         </div>
         <hr class="hr-2"/>
         <div class="popup__btn-optional">
-            <div class="popup__btn cancel--styles" onclick="toggle()">
+            <div class="popup__btn cancel--styles" id="cancer-popup">
                 <i class="fas fa-ban"></i>
             </div>
             <div class="popup__btn choose--styles" id="checked">
                 <i class="fas fa-check"></i>
             </div>
         </div>
-        </div>
+    </div>
+    <!-- end show popup -->
     <div class="paint" id="blur">
         <div class="paint__header">
             <h1>Painting app</h1>
@@ -83,11 +76,11 @@
                         </button>
                     </div>
                     <div class="paint__draw">
-                        <button id="default" onclick="toggle()">
+                        <button class="paint__show-popup" id="default">
                             <i class="fas fa-scroll"></i>
                             Vẽ Theo Mẫu
                         </button>
-                        <button id="default" onclick="setBgBoardPaintDefault()">
+                        <button class="paint__default-canvas" id="default">
                             <i class="fas fa-broom"></i>
                             Vẽ Mặc Định
                         </button>
@@ -98,9 +91,6 @@
                         <img src="" alt="" class="paint__img">
                     </div>
                     <canvas id="canvas"></canvas>
-                    <!-- <div id="icon-canvas">
-                        <i class="fas fa-undo"></i>
-                    </div> -->
                 </div>
             </div>
             <div class="paint__option">

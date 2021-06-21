@@ -5,19 +5,6 @@ const $$ = document.querySelectorAll.bind(document);
 const canvas = $('#canvas');
 const clear_btn = $('#clear');
 const undo_btn = $('#undo');
-const board_paint = $('.board-paint');
-const blur = $('#blur');
-const popup = $('#popup');
-const btn_paintDf = $('#default');
-const iconCanvas = $('#icon-canvas');
-const iconCheck = $$('.fa-check');
-const txtEle = $$('.txt');
-const slideEle = $$('.slide');
-const checkedIcon = $('#checked');
-const paint__img = $('.paint__img');
-const displayImg = $('#displayImg');
-const plusIcon = $('.fa-plus');
-const popup__upload = $('.popup__upload');
 
 // VARIABLES
 var start_background_color = 'white';
@@ -57,35 +44,3 @@ function undo() {
 clear_btn.addEventListener('click', clearCanvas);
 undo_btn.addEventListener('click', undo);
 // funtions
-
-function handleImageOnCanvas(i, img) {
-    handleSetCheckedImg(i, slideEle);
-    dispatchImg(img);
-}
-function dispatchImg(imgUrl) {
-    console.log(isCheckBtn);
-    checkedIcon.onclick = function (e) {
-        if (isCheckBtn) {
-            console.log(isCheckBtn);
-            isCheckBtn = true;
-            getImgBg(isCheckBtn);
-            setBgBoardPaint(imgUrl);
-            toggle();
-        } else {
-            alert('Bạn Cần Chọn 1 Ảnh Mẫu Để Vẽ 🤗');
-            e.preventDefault();
-        }
-    };
-}
-// add event to call functions
-canvas.addEventListener('touchstart', start, false);
-canvas.addEventListener('touchmove', draw, false);
-canvas.addEventListener('mousedown', start, false);
-canvas.addEventListener('mousemove', draw, false);
-
-canvas.addEventListener('touchend', stop, false);
-canvas.addEventListener('mouseup', stop, false);
-canvas.addEventListener('mouseout', stop, false);
-
-clear_btn.addEventListener('click', clearCanvas);
-undo_btn.addEventListener('click', undo);
