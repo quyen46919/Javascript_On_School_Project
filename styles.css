@@ -106,12 +106,21 @@ body{
     box-sizing: border-box;
     padding: 1rem;
 }
+/* Phần này t có sửa lại flex  */
 .paint__pen-size{
-    flex: 1;
+    flex: .5;
     width: 100%;
     color: var(--blue);
     font-weight: 500;
 }
+
+.paint__pen-opacity{
+    flex: .5;
+    width: 100%;
+    color: var(--blue);
+    font-weight: 500;
+}
+/* ===== */
 .paint__pen-material{
     height: 100px;
     width: 100%;
@@ -386,4 +395,131 @@ body{
 }
 #icon-canvas i:active{
     color: #848383;
+}
+/* ================================================================================
+            PHẦN CODE CSS CỦA TÀI
+================================================================================ */
+.paint__pen-size {
+    /* width: 30%; */
+    /* margin: 24% auto; */
+    position: relative;
+    /* height: 200px; */
+}
+.paint__pen-opacity{
+    position: relative;
+}
+#slider1 {
+    outline: none;
+    height: 7px;
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    /* transform: translateY(-50%); */
+    left: 10%;
+    cursor: pointer;
+
+    /* outline: none; */
+    border-radius: 3px;
+}
+#slider1::-webkit-slider-thumb {
+    /* appearance: none; */
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.paint__selector1 {
+    height: 50px;
+    width: 100px;
+    background-color: transparent;
+    position: absolute;
+    top: 34%;
+    left: 0;
+    /* transform: translateX(-50%); */
+    z-index: 2;
+    color: black;
+    /* cursor: pointer; */
+}
+/* .paint__selectBtn {
+    height: 20px;
+    width: 20px;
+    background: transparent;
+    border-radius: 50%;
+    background-position: center;
+    position: absolute;
+    /* bottom: 38rem; */
+
+.selectValue1 {
+ 
+        width: 58px;
+        /* height: 33px; */
+        position: absolute;
+        /* bottom: 38rem; */
+        left: 1rem;
+        /* background-color: aqua; */
+        top: 1px;
+        text-align: center;
+        /* line-height: 45px; */
+        font-size: 15px;
+        color: black;
+        z-index: 2;
+    
+    
+}
+#slider2 {
+    /* background-color: aqua; */
+    /* -webkit-appearance: none; */
+    outline: none;
+    height: 7px;
+    width: 80%;
+    position: absolute;
+    top: 60%;
+    /* transform: translateY(-50%); */
+    left: 10%;
+    cursor: pointer;
+
+    /* outline: none; */
+    border-radius: 3px;
+}
+#slider2::-webkit-slider-thumb {
+    /* appearance: none; */
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    position: relative;
+    z-index: 3;
+}
+
+.paint__selector2 {
+    height: 50px;
+    width: 100px;
+    background-color: transparent;
+    position: absolute;
+    top: 34%;
+    left: 0;
+    /* transform: translateX(-50%); */
+    z-index: 2;
+    /* cursor: pointer; */
+    color: black;
+}
+
+
+.selectValue2 {
+ 
+    width: 58px;
+    /* height: 33px; */
+    position: absolute;
+    /* bottom: 38rem; */
+    left: 3rem;
+    /* background-color: aqua; */
+    top: 1px;
+    text-align: center;
+    /* line-height: 45px; */
+    font-size: 15px;
+    z-index: 50;
+    color: black;
+    
+    
 }
