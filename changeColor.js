@@ -103,6 +103,8 @@ let picker = new Picker(document.getElementById("paint__change-color-picker"), 3
 setInterval(() =>picker.draw(), 1); 
 
 picker.onChange((color)=>{
-    draw_color = `rgb(${color.r}, ${color.g},${color.b})`
+    draw_color = `rgba(${color.r}, ${color.g},${color.b},${opacityValue})`;
+    
+
 })
 

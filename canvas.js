@@ -14,6 +14,7 @@ var restore_array = [];
 var index = -1;
 var isCheckBtn = false;
 var draw_width = 10;
+var opacityValue = 1;
 
 // MAKE CANVAS
 canvas.width = 1200;

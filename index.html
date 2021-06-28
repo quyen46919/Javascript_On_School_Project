@@ -115,6 +115,23 @@
             <div class="paint__option">
                 <div class="paint__pen-size">
                     PEN SIZE
+
+                    <!-- <input type="range" min="1" max="50" class="paint__pen-tool " value = "50" onInput="draw_width = this.value"> -->
+                    <input type="range" min="1" max="50" value="10" id="slider1">
+                    <div class="paint__selector1">Size: 
+                        <!-- <div class="paint__selectBtn"></div> -->
+                        <div class="selectValue1"></div>
+                    </div>
+                </div>
+                <div class="paint__pen-opacity">
+                    PEN OPACITY
+
+                    <!-- <input type="range" min="1" max="50" class="paint__pen-tool " value = "50" onInput="draw_width = this.value"> -->
+                    <input type="range" min="0" max="1000" value="1000" id="slider2">
+                    <div class="paint__selector2">Opacity: 
+                        <!-- <div class="paint__selectBtn"></div> -->
+                        <div class="selectValue2"></div>
+                    </div>
                 </div>
                 <div class="paint__pen-material">
                     PEN MATERIAL
