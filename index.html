@@ -7,55 +7,230 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
+    <!-- show popup -->
     <div id="popup">
-            <h2>Bạn Có Muốn Chọn Ảnh Để Vẽ Không 🥰</h2>
-            <div class="slider">
-                <div class="slide-first image" onclick="handleImageOnCanvas('https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png')">
-                    <img src="https://tranhtomau.vn/wp-content/uploads/2020/05/tranh-to-mau-cho-be.png" alt="">
-                </div>
-                <div class="slide image" onclick="handleImageOnCanvas('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU')">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdo684bkHPcad6MDDL3O6d7gs1y_qVcmxNTFbMwDOOM3oDE9HtTdsCuc7D9ADRG4e6yEs&usqp=CAU" alt="">
-                </div>
-                <div class="slide image" onclick="handleImageOnCanvas('https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg')">
-                    <img src="https://kynaforkids.vn/blog/wp-content/uploads/2020/06/hinh-cho-be-to-mau-44-1024x768.jpg" alt="">
-                </div>
-                <div class="slide image" onclick="handleImageOnCanvas('https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg')">
-                    <img src="https://tranhtomauchobe.com/wp-content/uploads/2020/10/1603515155_997_Bo-suu-tap-tranh-to-mau-cac-loai-xe-cho.jpg" alt="">
+        <div class="popup__content">
+            <!-- popup-left -->
+            <div class="popup__close">
+                <div class="popup__close-btn " id="cancer-popup">
+                    <i class="fas fa-times"></i>
                 </div>
             </div>
-            <a href="#" onclick="toggle()">Close</a>
-    </div>
-    <div class="paint" id="blur">
-        <div class="paint__option">
-            <div class="paint__direc">
-                <button id="default" onclick="toggle()">Vẽ Theo Mẫu</button>
-                <button id="undo">Quay lại</button>
-                <button id="clear">Làm mới</button>
+            <div class="popup__content-left">
+                <div class="popup__title">
+                    <h2>Vẽ Theo Mẫu</h2>
+                    <span>Hãy Chọn 1 Bức Ảnh</span>
+                </div>
+                <label class="popup__upload" for="firstimg">
+                    <div class="popup__photos">
+                        <i class="far fa-file-image" id="file-image"></i>
+                    </div> 
+                    <input type="file" name="" id="firstimg" class="upload">
+                    <img id="displayImg" alt=""></img>
+                    <span>--Vẽ Tuỳ Chọn--</span>
+                </label>
+                <div class="popup__btn-optional">
+                    <button class="popup__btn choose--styles" id="checked">CREATE</button> 
+                </div>
+            </div> 
+            <!-- popup-right -->
+            <div class="popup__content-right">
+                <div class="popup__select">
+                    <div class="paint__select-theme">
+                        <span>Theme</span>
+                        <select name="" id="select-theme">
+                            <option value="Animals">Animals</option>
+                            <option value="House">House</option>
+                            <option value="Doraemon">Doraemon</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Vehicle">Vehicle</option>
+                        </select>
+                    </div>
+                    <div class="paint__select-decorate">
+                        <span>Decorate</span>
+                        <select name="" id="select-decorate">
+                            <option value="No Color">No Color</option>
+                            <option value="Colorful">Colorful</option>
+                        </select>
+                    </div>
+                </div> 
+                <div class="popup__slides">
+                    <div class="popup__slider">
+                        <div class="popup__over">
+                        </div>
+                    </div>  
+                    <div class="popup__btn-pos">
+                        <div class="popup__btn-prev">
+                            <i class="fas fa-chevron-up"></i>
+                        </div>
+                        <div class="popup__btn-next">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="paint__pen-size">
-                PHẦN NÀY ĐỂ THAY ĐỔI KÍCH CỠ CỦA BÚT
-            </div>
-            <div class="paint__change-color">
-                ĐỔI MÀU BÚT
-            </div>
-          
         </div>
-        <div class="paint__canvas">
-            <div class="board-paint"> 
+    </div>
+    <!-- end show popup -->
+
+
+    <div class="paint" id="blur">
+        <div class="paint__header">
+            <h1>Painting app</h1>
+        </div>
+        <div class="paint__main-part">
+            <div class="paint__options-canvas">
+                <div class="paint__direc">
+                    <div class="paint__history">
+                        <button id="undo">
+                            <i class="fas fa-undo"></i>
+                            Quay lại
+                        </button>
+                        <button id="clear">
+                            <i class="fas fa-eraser"></i>
+                            Làm mới
+                        </button>
+                    </div>
+                    <div class="paint__draw">
+                        <button class="paint__show-popup" id="default">
+                            <i class="fas fa-scroll"></i>
+                            Vẽ Theo Mẫu
+                        </button>
+                        <button class="paint__default-canvas" >
+                            <i class="fas fa-broom"></i>
+                            Vẽ Mặc Định
+                        </button>
+                    </div>
+                </div>
+                <div class="paint__canvas">
+                    <div class="paint__board"> 
+                        <img src="" alt="" class="paint__img">
+                    </div>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="paint__addcolor paint__addcolor-transform">
+                    <div class="paint__addcolor-h4">
+                        <h4>Choose a new color</h4>
+                    </div>
+                    <div class="paint__addcolor-container">
+                        <div class="paint__addcolor-container-background">
+                            <div class="paint__addcolor-container-background-top"></div>
+                            <canvas id="paint__change-color-picker"></canvas>
+                            <div class="paint__addcolor-container-background-bottom">
+                                <!-- <canvas id="paint__change-color-picker2"></canvas> -->
+                            </div>
+                        </div>
+                        <div class="paint__addcolor-container-input" id="paint__addcolor-container-input">
+                            <div class="paint__addcolor-container-input-background" id="paint__addcolor-container-input-background"></div>
+                            <label class="paint__addcolor-container-input-background-label">Red</label>
+                            <input  class="paint__addcolor-container-input-background-input" id="input-red"  type="number" value="255">
+                            <label class="paint__addcolor-container-input-background-label">Green</label>
+                            <input  class="paint__addcolor-container-input-background-input" type="number" value="0">
+                            <label class="paint__addcolor-container-input-background-label" >Blue</label>
+                            <input  class="paint__addcolor-container-input-background-input" id="input-blue" type="number" value="0">
+                        </div>
+                       
+                    </div>
+                    <div class="paint__addcolor-container-input-btn">
+                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-add">Add Color</button>
+                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-cancel">Cancel</button>
+                    </div>
+                </div>
             </div>
-            <canvas id="canvas">
-            </canvas>
-            <div id="icon-canvas">
-                <i class="fas fa-undo"></i>
+            <div class="paint__option">
+                <div class="paint__pen-size">
+                    PEN SIZE
+                </div>
+                <div class="paint__pen-material">
+                    PEN MATERIAL
+                    <div class="paint__pen-material--content">
+                        <div class="paint__material paint__material--normal active">
+                            <i class="fas fa-pen"></i>
+                        </div>
+                        <div class="paint__material paint__material--inkpen">
+                            
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <div class="paint__material paint__material--oil">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="paint__material paint__material--spray">
+                            <i class="fas fa-spray-can"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="paint__change-color">
+                    <p class="title">CHỌN MÀU</p>
+                    <div class="paint__change-color-changebox">
+                        <div class="paint__change-color-changebox-box" id="changecolorbox"></div>
+                        <div class="paint__change-color-changebox-pen">
+                            <i class="fas fa-eye-dropper"></i>
+                        </div>
+                    </div>
+                    <div class="paint__change-color-box">
+                        <div class="paint__change-color-box-row">
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 255, 255);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(195, 195, 195);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(88, 88, 88);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 0, 0);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 0, 13);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(241, 73, 80 );"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(228, 64, 151 );"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(233, 102, 172);"></div>
+                        </div>
+                        <div class="paint__change-color-box-row">
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(243, 112, 32);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(245, 141, 77);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(249, 187, 148);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(253, 228, 212);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(247, 143, 30);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(203, 128, 1);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 162, 0);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 251, 195);"></div>
+                        </div>
+                        <div class="paint__change-color-box-row">
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 194, 15);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 206, 63);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 242, 0);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 245, 51);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(141, 253, 7);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(164, 253, 57);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 168, 143);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 185, 165);"></div>
+
+                        </div>
+                        <div class="paint__change-color-box-row">
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 146, 206);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 168, 216);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(1, 84, 164 );"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(52, 118, 182);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(107, 67, 155);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(137, 105, 175);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(66, 68, 153);"></div>
+                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(184, 105, 173);"></div>
+                        </div>
+                    </div>
+                    <button class="paint__change-color-btn" id="btnAddColor">Add Color</button>
+                </div>
+                </div>
             </div>
+            
         </div>
     </div>
     <!-- JAVASCRIPT LINK-->
+    <script src="index.js"></script>
     <script src="canvas.js"></script>
-    <script src="resizePen.js"></script>
     <script src="changeColor.js"></script>
+    <script src="./materialStyles/normalPenStyles.js"></script>
+    <script src="./materialStyles/inkPenStyle.js"></script>   
+    <script src="./materialStyles/oilPalmStyles.js"></script>   
+    <script src="./materialStyles/sprayStyles.js"></script>
+    <script src="./materialStyles/brushStyle.js"></script>
+    <script src="resizePen.js"></script>
     <script src="patternDrawing.js"></script>
 </body>
 </html>
+
