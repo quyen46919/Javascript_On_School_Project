@@ -688,35 +688,30 @@ body{
     
 }
 
-/* Code css cua Nghia*/
+
+/*code css cua Nghia*/
 .paint__addcolor{
-    position: absolute;
-    height: 550px;
-    width: 550px;
-    background-color: rgb(235, 235, 235);
+    border: solid 3px gray ;
+
+    
+}
+.paint__transform{
+    /* transform: translateX(-50000px); */
+    z-index: -100;
+}
+.paint__h4{
+    height: 50px;
+    width: auto;
+    /* background-color: darkmagenta; */
 
 }
-.paint__change-color{
-    flex: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.paint__h4 h4{
+    font-size: 1.5rem;
+    font-weight: lighter !important;
+    padding-left: 30px;
+    color: rgb(128, 128, 128);
 }
-#paint__change-color-picker{
-    border: 3px solid rgba(15, 15, 15, 0.2);
-    cursor: pointer;
-}
-.paint__change-color{
-    flex: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-}
-#paint__change-color-picker{
-    border: 3px solid rgba(15, 15, 15, 0.2);
-    cursor: pointer;
-}
-.paint__change-color-changebox{
+.paint__changeboxcolor{
     height: 50px;
     width: 100%;
     /* background-color: cadetblue; */
@@ -724,14 +719,14 @@ body{
     display: flex;
     gap: 5px;
 }
-.paint__change-color-changebox-box{
+.paint__changeboxcolor--box{
     flex: 3;
     gap: 5px;
     
     background-color: red;
     border-radius: 5px;
 }
-.paint__change-color-changebox-pen{
+.paint__changeboxcolor--pen{
 
     flex: 2;
     /* background-color: cornflowerblue; */
@@ -742,7 +737,7 @@ body{
     align-items: center;
     border-radius: 5px;
 }
-.paint__change-color-changebox-pen .fa-eye-dropper{
+.paint__changeboxcolor--pen .fa-eye-dropper{
     font-size: 2rem;
     /* padding: 5px; */
 
@@ -753,7 +748,7 @@ body{
 }
 
 
-.paint__change-color-box{
+.paint__changecolorbox{
     height: 120px;
     width: 100%;
     
@@ -761,22 +756,23 @@ body{
     overflow: hidden;
 }
 
-.paint__change-color-box-row{
+.paint__changecolorboxs{
     height:25%;
     width: 100%;
     overflow: hidden;
 
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     cursor: pointer;
 
 }
-.paint__change-color-box-row-rows:hover{
+.paint__changecolorboxs--rows:hover{
     border: solid 2px rgb(129, 128, 128);
 }
-.paint__change-color-box-row-rows{
+.paint__changecolorboxs--rows{
     flex: 1;
 }
-.paint__change-color-btn{
+.paint__changecolor--btn{
     height: 50px !important;
     width: 60% !important;
     /* background-color: green !important; */
@@ -788,7 +784,7 @@ body{
     font-size: 1.3rem;
     border-radius: 8px;
 }
-.paint__change-color-btn:hover{
+.paint__changecolor--btn:hover{
     color: darkblue;
     font-size: 1.5rem;
     font-weight: bold;
@@ -796,54 +792,34 @@ body{
     transition: 0.5s;
 
 }
-.paint__addcolor{
-    border: solid 3px gray ;
 
-    
-}
-.paint__addcolor-transform{
-    /* transform: translateX(-50000px); */
-    z-index: -100;
-}
-.paint__addcolor-h4{
-    height: 50px;
-    width: auto;
-    /* background-color: darkmagenta; */
-
-}
-.paint__addcolor-h4 h4{
-    font-size: 1.5rem;
-    font-weight: lighter !important;
-    padding-left: 30px;
-    color: rgb(128, 128, 128);
-}
-.paint__addcolor-container{
+.paint__container{
     height: 400px;
     width: 100%;
     /* background-color: darkolivegreen; */
     gap: 15px;
     display: flex;
 }
-.paint__addcolor-container-background{
+.paint__container-background{
     flex: 4;
     /* background-color: darkred; */
     height: 100%;
     
 }
-.paint__addcolor-container-input{
+.paint__input{
     flex: 2;
     /* background-color: rgb(65, 61, 61); */
     height: 100%;
 
 }
-.paint__addcolor-container-background-bottom{
+.paint__container-background-bottom{
     /* height: 30px; */
     /* width: 100%; */
     /* background-color: rgb(223, 202, 13); */
 
     margin-bottom: 30px;
 }
-.paint__addcolor-container-input-background{
+.paint__backgroundinput{
     height: 100px;
     width: 80% ;
     background-color: rgb(252, 8, 8);
@@ -851,7 +827,7 @@ body{
     margin: 0 auto;
     margin-bottom: 10px;
 }
-.paint__addcolor-container-input-background-input{
+.paint__backgroundinput--input{
     width: 76%;
     height: 30px;
 
@@ -861,20 +837,20 @@ body{
     color: rgb(109, 109, 109);
     font-weight: bold;
 }
-.paint__addcolor-container-input-background-label{
+.paint__backgroundinput--label{
     font-size: 1.2rem;
     font-weight: lighter;
     margin-top: 10px;
     margin-left: 10px;
 }
-.paint__addcolor-container-input-btn{
+.paint__btninput{
     margin-top: 30px;
     height: 50px;
     width: 100%;
     margin:auto 0;
     /* background-color: hotpink; */
 }
-.paint__addcolor-container-btn-box{
+.paint__btninput--box{
     border-radius: 10px;
     height: 50px !important;
     width: 130px !important;
@@ -891,10 +867,10 @@ body{
     outline: none;
     font-size: 1.2rem;
 }
-.paint__addcolor-container-btn-cancel{
+.paint__btninput--cancel{
 margin-left: 150px !important;
 }
-.paint__addcolor-container-btn-box:hover{
+.paint__btninput--box:hover{
     border: solid 2px rgb(155, 154, 154);
     text-align: none;
 
@@ -902,6 +878,13 @@ margin-left: 150px !important;
     font-weight: bolder;
     outline: none;
 }
-#paint__change-color-picker{
+#paint__backgruond--canvas{
     margin-left: 10px;
+}
+.paint__addcolor{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    background-color: rgb(235, 235, 235);
+
 }
