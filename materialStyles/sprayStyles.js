@@ -10,22 +10,30 @@ function sprayDraw(){
         context.lineWidth = 100;
         context.beginPath();
         context.shadowBlur = 0;
-        context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
-        
+        // context.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
       };
       canvas.onmousemove = function(e) {
+        mouseEvent(e);
         if (is_drawing) {
           for (var i = density; i--; ) {
-            var radius = 20;
+            var radius = 30;
             var offsetX = getRandomInt(-radius, radius);
             var offsetY = getRandomInt(-radius, radius);
-            context.fillRect(e.clientX + offsetX, e.clientY + offsetY, 1, 1);
+            // var offsetX = mouse.x;
+            // var offsetY = mouse.y;
+            context.fillRect(e.clientX + offsetX - 100, e.clientY + offsetY - 100, 0.5, 0.5);
             context.lineTo(
-                e.clientX - canvas.offsetLeft,
-                e.clientY - canvas.offsetTop,
+              mouse.x, mouse.y
             );
           }
+          context.lineTo(
+            mouse.x, mouse.y
+          );
+          context.lineWidth = draw_width;
         }
+        mouse.lastX = mouse.x;
+        mouse.lastY = mouse.y;
+        
       };
       canvas.onmouseup = function(e) {
         is_drawing = false;

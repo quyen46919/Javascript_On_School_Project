@@ -1,37 +1,27 @@
 
 function inkPenDraw(){
-    var inkpen_draw_width = 10;
-    let lastX = 0;
-    let lastY = 0;
+    var inkpen_draw_width = draw_width;
     canvas.onmousedown = function(e) {
+        mouseEvent(e);
         is_drawing = true;
         context.fillStyle = draw_color;
-        lastX = e.pageX - this.offsetLeft;
-        lastY = e.pageY - this.offsetTop;
+        // lastX = e.pageX - this.offsetLeft;
+        // lastY = e.pageY - this.offsetTop;
         context.shadowBlur = 0;
     };
-    
-    canvas.onmouseup = function(e){
-        is_drawing = false;
-        e.preventDefault();
-        if (e.type != 'mouseout') {
-            restore_array.push(
-                context.getImageData(0, 0, canvas.width, canvas.height),
-            );
-            index += 1;
-        }
-    }
+
     
     canvas.onmousemove = function(e) {
+        mouseEvent(e);
         if (is_drawing) {
-            mouseX = e.pageX - this.offsetLeft;
-            mouseY = e.pageY - this.offsetTop;
+            mouseX = mouse.x
+            mouseY = mouse.y;
     
             // find all points between        
             var x1 = mouseX,
-                x2 = lastX,
+                x2 = mouse.lastX,
                 y1 = mouseY,
-                y2 = lastY;
+                y2 = mouse.lastY;
     
             var steep = (Math.abs(y2 - y1) > Math.abs(x2 - x1));
             if (steep){
@@ -82,8 +72,19 @@ function inkPenDraw(){
                     error -= 1.0;
                 }
             }
-            lastX = mouseX;
-            lastY = mouseY;
+
+        }
+        mouse.lastX = mouse.x;
+        mouse.lastY = mouse.y;
+    }
+    canvas.onmouseup = function(e){
+        is_drawing = false;
+        e.preventDefault();
+        if (e.type != 'mouseout') {
+            restore_array.push(
+                context.getImageData(0, 0, canvas.width, canvas.height),
+            );
+            index += 1;
         }
     }
 }

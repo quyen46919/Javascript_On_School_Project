@@ -9,14 +9,13 @@ slider1.oninput = function () {
     draw_width = this.value;
 }
 
-//code cho range opacity
+// fix input range for shadow blur
+// author: Quyen
 var slider2 = document.getElementById('slider2');
-
-var selectValue2 = document.querySelector('.selectValue2');
-slider2.setAttribute('value',1);
+const selectValue2 = document.querySelector('.selectValue2');
 selectValue2.innerHTML = slider2.value;
 slider2.oninput = function () {
-    selectValue2.innerHTML =  + this.value/1000;
-    opacityValue = (this.value/1000);
+    selectValue2.innerHTML =  this.value;
+    shadow_blur = this.value;
   
 }

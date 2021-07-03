@@ -78,42 +78,86 @@
 
 
     <div class="paint" id="blur">
-        <div class="paint__header">
+        <!-- <div class="paint__header">
             <h1>Painting app</h1>
-        </div>
+        </div> -->
         <div class="paint__main-part">
             <div class="paint__options-canvas">
                 <div class="paint__direc">
                     <div class="paint__history">
                         <button id="undo">
                             <i class="fas fa-undo"></i>
-                            Quay lại
+                            <p>Quay lại</p>
                         </button>
                         <button id="clear">
                             <i class="fas fa-eraser"></i>
-                            Làm mới
+                            <p>Làm mới</p>
                         </button>
                     </div>
                     <div class="paint__draw">
+                        <div class="paint__geometry">
+                            <button class="paint__btn-table">
+                                <i class="fab fa-accusoft"></i>
+                                <p>Vẽ Hình Học</p>
+                            </button>
+                            <div class="paint__table-geometry">
+                                <div class="paint__draw-geometry">
+                                    <button class="geometry btn__horizontal-rule">
+                                        <img src="./images/substract.png" alt="">
+                                    </button>
+                                    <button class="geometry btn__square">
+                                        <img src="./images/square.png" alt="">
+                                    </button>
+                                    <button class="geometry btn__rectangle">
+                                        <img src="./images/rectangular-geometrical-shape-outline.png" alt="">
+                                    </button>
+                                    <button class="geometry btn__circle">
+                                        <img src="./images/dry-clean.png" alt="">
+                                    </button>
+                                    <button class="geometry btn__triangle">
+                                        <img src="./images/triangle-outline-variant.png" alt="">
+                                    </button>
+                                    <button class="geometry btn__hexagon">
+                                        <img src="./images/hexagon.png" alt="">
+                                    </button>
+                                    <!-- <button class="geometry btn__circle">
+                                        Text
+                                    </button> -->
+                                </div>
+                                <div class="paint__custom-geometry">
+                                    <div class="paint__fill">
+                                        <span>Làm đầy</span>
+                                        <input id="fillBox" type="checkbox" >
+                                        
+                                    </div>
+                                    <div class="paint__Angle">
+                                        <span>Angle</span>
+                                        <input id="polygonAngle" type="range" step="22.5" min="0" max="90">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <button class="paint__show-popup" id="default">
                             <i class="fas fa-scroll"></i>
-                            Vẽ Theo Mẫu
+                            <p>Vẽ Theo Mẫu</p>
                         </button>
-                        <button class="paint__default-canvas" >
+                        <button class="paint__default-canvas">
                             <i class="fas fa-broom"></i>
-                            Vẽ Mặc Định
+                            <p>Vẽ Mặc Định</p>
                         </button>
                     </div>
                 </div>
+                <!-- end paint__direc -->
                 <div class="paint__canvas">
                     <div class="paint__board"> 
                         <img src="" alt="" class="paint__img">
                     </div>
                     <canvas id="canvas"></canvas>
                 </div>
+                <div class="paint__blur-bg"></div>
                 <div class="paint__addcolor paint__addcolor-transform">
                     <div class="paint__addcolor-h4">
-                        <h4>Choose a new color</h4>
+                        <h4>Chọn màu</h4>
                     </div>
                     <div class="paint__addcolor-container">
                         <div class="paint__addcolor-container-background">
@@ -135,34 +179,16 @@
                        
                     </div>
                     <div class="paint__addcolor-container-input-btn">
-                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-add">Add Color</button>
-                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-cancel">Cancel</button>
+                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-add">Chọn màu này</button>
+                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-cancel">Hủy</button>
                     </div>
                 </div>
+                <!-- end paint__addcolor -->
             </div>
             <div class="paint__option">
-                <div class="paint__pen-size">
-                    PEN SIZE
-
-                    <!-- <input type="range" min="1" max="50" class="paint__pen-tool " value = "50" onInput="draw_width = this.value"> -->
-                    <input type="range" min="1" max="50" value="10" id="slider1">
-                    <div class="paint__selector1">Size: 
-                        <!-- <div class="paint__selectBtn"></div> -->
-                        <div class="selectValue1"></div>
-                    </div>
-                </div>
-                <div class="paint__pen-opacity">
-                    PEN OPACITY
-
-                    <!-- <input type="range" min="1" max="50" class="paint__pen-tool " value = "50" onInput="draw_width = this.value"> -->
-                    <input type="range" min="0" max="1000" value="1000" id="slider2">
-                    <div class="paint__selector2">Opacity: 
-                        <!-- <div class="paint__selectBtn"></div> -->
-                        <div class="selectValue2"></div>
-                    </div>
-                </div>
+                
                 <div class="paint__pen-material">
-                    PEN MATERIAL
+                    <div class="paint__title">CHẤT LIỆU BÚT</div>
                     <div class="paint__pen-material--content">
                         <div class="paint__material paint__material--normal active">
                             <i class="fas fa-pen"></i>
@@ -179,8 +205,29 @@
                         </div>
                     </div>
                 </div>
+                <div class="paint__pen-size">
+                    <div class="paint__title">KÍCH CỠ</div>
+                    
+                    <div class="paint__selector1">
+                        <span>Size: </span>
+                        <div class="selectValue selectValue1"></div>
+                    </div>
+                    <input type="range" min="1" max="50" value="10" id="slider1">
+                </div>
+                <!-- end paint__pen-size -->
+                <div class="paint__pen-opacity">
+                    <div class="paint__title">ĐỘ LÀM MỜ CỦA BÚT DẦU</div>
+                    
+                    <!-- fix input range from 0/1000 to 0/30 for shadow blur -->
+                    <div class="paint__selector2">
+                        <span>Size: </span>
+                        <div class="selectValue selectValue2"></div>
+                    </div>
+                    <input type="range" min="1" max="30" value="10" id="slider2">
+                </div>
+                <!-- end paint__pen-opacity -->
                 <div class="paint__change-color">
-                    <p class="title">CHỌN MÀU</p>
+                    <div class="paint__title">CHỌN MÀU</div>
                     <div class="paint__change-color-changebox">
                         <div class="paint__change-color-changebox-box" id="changecolorbox"></div>
                         <div class="paint__change-color-changebox-pen">
@@ -195,8 +242,18 @@
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 0, 0);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 0, 13);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(241, 73, 80 );"></div>
+                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(228, 64, 151 );"></div> -->
+                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(233, 102, 172);"></div> -->
+                        </div>
+                        <div class="paint__change-color-box-row">
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(228, 64, 151 );"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(233, 102, 172);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 162, 0);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 251, 195);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 168, 143);"></div>
+                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 185, 165);"></div>
+                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(66, 68, 153);"></div> -->
+                          <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(184, 105, 173);"></div> -->
                         </div>
                         <div class="paint__change-color-box-row">
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(243, 112, 32);"></div>
@@ -205,8 +262,7 @@
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(253, 228, 212);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(247, 143, 30);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(203, 128, 1);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 162, 0);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 251, 195);"></div>
+                            
                         </div>
                         <div class="paint__change-color-box-row">
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 194, 15);"></div>
@@ -215,8 +271,7 @@
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 245, 51);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(141, 253, 7);"></div>
                             <div class="paint__change-color-box-row-rows" style="background-color: rgb(164, 253, 57);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 168, 143);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 185, 165);"></div>
+                            
 
                         </div>
                         <div class="paint__change-color-box-row">
@@ -226,11 +281,10 @@
                           <div class="paint__change-color-box-row-rows" style="background-color: rgb(52, 118, 182);"></div>
                           <div class="paint__change-color-box-row-rows" style="background-color: rgb(107, 67, 155);"></div>
                           <div class="paint__change-color-box-row-rows" style="background-color: rgb(137, 105, 175);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(66, 68, 153);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(184, 105, 173);"></div>
+                          
                         </div>
                     </div>
-                    <button class="paint__change-color-btn" id="btnAddColor">Add Color</button>
+                    <button class="paint__change-color-btn" id="btnAddColor" style="display: none">Add Color</button>
                 </div>
             </div>
             
@@ -239,14 +293,15 @@
     <!-- JAVASCRIPT LINK-->
     <script src="index.js"></script>
     <script src="canvas.js"></script>
+    <script src="resizePen.js"></script>
     <script src="changeColor.js"></script>
     <script src="./materialStyles/normalPenStyles.js"></script>
     <script src="./materialStyles/inkPenStyle.js"></script>   
     <script src="./materialStyles/oilPalmStyles.js"></script>   
     <script src="./materialStyles/sprayStyles.js"></script>
     <script src="./materialStyles/brushStyle.js"></script>
-    <script src="resizePen.js"></script>
     <script src="patternDrawing.js"></script>
+    <script src="drawShape.js"></script>
 </body>
 </html>
 

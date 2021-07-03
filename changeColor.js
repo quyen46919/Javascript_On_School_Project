@@ -2,20 +2,19 @@
 var inputred = document.getElementById("input-red");
 var inputgreen = document.getElementById("input-green");
 var inputblue = document.getElementById("input-blue");
-console.log(inputred);
 var btnaadcolor = document.getElementById("btnAddColor")
-document.getElementById("btnAddColor").style.backgroundColor= draw_color
 var changecolorbox = document.getElementById("changecolorbox")
-
-const colorpickers = [...document.querySelectorAll('.paint__change-color-box-row-rows')]
-console.log(colorpickers);
 var rmadd = document.querySelector('.paint__addcolor');
-var cancelbtn = document.querySelector('.paint__addcolor-container-btn-cancel')
-cancelbtn.addEventListener('click',(e)=>{
-    rmadd.classList.add('paint__addcolor-transform')
-})
-var addcolorbtn = document.querySelector('.paint__addcolor-container-btn-add')
+var cancelbtn = document.querySelector('.paint__addcolor-container-btn-cancel');
+var addcolorbtn = document.querySelector('.paint__addcolor-container-btn-add');
 
+document.querySelector('#changecolorbox').style.backgroundColor = draw_color;
+cancelbtn.addEventListener('click',(e)=>{
+    rmadd.classList.add('paint__addcolor-transform');
+    document.querySelector('.paint__blur-bg').classList.remove('active');
+})
+document.getElementById("btnAddColor").style.backgroundColor = draw_color;
+const colorpickers = [...document.querySelectorAll('.paint__change-color-box-row-rows')]
 
 class Picker {
     constructor(target, width, height){
@@ -32,7 +31,6 @@ class Picker {
        this.pickerCircle = {x : 10, y : 10 , width : 8, height: 8};
 
        this.listenForEvents();
-       
    }
 
    draw(){
@@ -69,7 +67,7 @@ class Picker {
        //circle 
        this.contexts.beginPath();
        this.contexts.arc(this.pickerCircle.x, this.pickerCircle.y,
-   this.pickerCircle.width, 0, Math.PI*2 );
+                this.pickerCircle.width, 0, Math.PI*2 );
        this.contexts.strokeStyle = "black";
        this.contexts.stroke();
        this.contexts.closePath();
@@ -78,10 +76,9 @@ class Picker {
    listenForEvents(){
        let isMouseDown = false;
        const onMouseDown  = (e) => {
-           let currentX = e.clientX - 505;
-        //    console.log(this.target.offsetLeft);
-           let currentY = e.clientY - 321;
-        //    console.log(this.target.offsetTop);
+           mouseEvent(e);
+           let currentX = e.clientX - 370;
+           let currentY = e.clientY - 190;
            if(currentY > this.pickerCircle.Y && currentY <
         this.pickerCircle.y + this.pickerCircle.width && currentX > 
         this.pickerCircle.x && currentX < this.pickerCircle.width){
@@ -121,29 +118,28 @@ onChange(callback) {
 
 
 
-let picker = new Picker(document.getElementById("paint__change-color-picker"), 350, 350);
+let picker = new Picker(document.getElementById("paint__change-color-picker"), 350, 310);
 //Draw
 setInterval(() =>picker.draw(), 1); 
 
 //CODE CHON MAU NHAP BANG TAY
-var inputRed = 0;
+var inputRed = 0;   
 
 
 //CODE CHON MAU O BANG CO SAN
 colorpickers.forEach(colorpicker => {
     colorpicker.addEventListener('click', (e) => {
         draw_color = e.target.style.backgroundColor;
-        document.getElementById("changecolorbox").style.backgroundColor = draw_color
-        document.getElementById("btnAddColor").style.backgroundColor= draw_color
-        changecolorbox.style.backgroundColor= draw_color
-
-        // rmadd.classList.remove('paint__addcolor-transform')
+        document.getElementById("changecolorbox").style.backgroundColor = draw_color;
+        document.getElementById("btnAddColor").style.backgroundColor= draw_color;
+        changecolorbox.style.backgroundColor= draw_color;
 
     })
 })
 
-btnaadcolor.addEventListener('click',(e) =>{
-    rmadd.classList.remove('paint__addcolor-transform')
+document.querySelector('.paint__change-color-changebox-box').addEventListener('click',(e) =>{
+    rmadd.classList.remove('paint__addcolor-transform');
+    document.querySelector('.paint__blur-bg').classList.add('active');
 })
 
     picker.onChange((color)=>{
@@ -159,17 +155,18 @@ btnaadcolor.addEventListener('click',(e) =>{
        `
         
         document.querySelector('#paint__addcolor-container-input').innerHTML = html;
-        var backgroundColor = `rgb(${color.r}, ${color.g},${color.b})`
+        var backgroundColor = `rgba(${color.r}, ${color.g},${color.b},${opacityValue})`;
       
-        document.getElementById("paint__addcolor-container-input-background").style.backgroundColor= backgroundColor
+        document.getElementById("paint__addcolor-container-input-background").style.backgroundColor = backgroundColor;
 
         //CODE ADD MAU RA NGOAI
         addcolorbtn.addEventListener('click',(e) =>{
-            rmadd.classList.add('paint__addcolor-transform')
-        draw_color = backgroundColor;
-        console.log(draw_color);
-        document.getElementById("changecolorbox").style.backgroundColor = draw_color
-        document.getElementById("btnAddColor").style.backgroundColor= draw_color
+            rmadd.classList.add('paint__addcolor-transform');
+            draw_color = backgroundColor;
+            console.log(draw_color)
+            document.getElementById("changecolorbox").style.backgroundColor = draw_color;
+            document.getElementById("btnAddColor").style.backgroundColor= draw_color;
+            document.querySelector('.paint__blur-bg').classList.remove('active');
 
         inputred.addEventListener('keyup',(e)=>{
             inputRed = +e.target.value;
@@ -179,11 +176,12 @@ btnaadcolor.addEventListener('click',(e) =>{
                 var inputBlue = 0;
                 inputblue.addEventListener('keyup',(e)=>{
                     inputBlue = +e.target.value;
-                    draw_color = `rgb(${inputRed}, ${inputGreen},${inputBlue})`  
+                    draw_color = `rgba(${inputRed}, ${inputGreen},${inputBlue},${opacityValue})`;
                     document.getElementById("paint__addcolor-container-input-background").style.backgroundColor= draw_color  
                 })
+                console.log(draw_color)
             })
-        })
+        });
     })
 
     } 
