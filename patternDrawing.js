@@ -521,7 +521,7 @@ var arrBoxVal = [];
 // đặt dữ liệu cho popup slider
 function setDataBgSlile(themeVal = 'Animals', arrImgsVal) {
     arrBoxVal.push(arrImgsVal);
-    // phân tích và xử lý dữ liệu đầu vào
+
     for (let i = 1; i < arrBoxVal.length; i++) {
         if (typeof arrBoxVal[0] === 'undefined') {
             arrBoxVal[0] = arrImgs1;
@@ -574,7 +574,9 @@ function setDataBgSlile(themeVal = 'Animals', arrImgsVal) {
         btn_prev.onclick = () => {
             if (counter >= arrBox.length - 1) return;
             popup__over.style.transition = 'transform 0.6s ease-in-out';
-            removeClassActive(arrBox.length - 1, counter);
+            popup__slider.classList.remove('active');
+            arrBox[arrBox.length - 1].classList.remove('active');
+            arrBox[counter].classList.remove('active');
             counter++;
             setActiveSlider(counter);
             getActiveSlider();
@@ -584,18 +586,15 @@ function setDataBgSlile(themeVal = 'Animals', arrImgsVal) {
         btn_next.onclick = () => {
             if (counter <= 0) return;
             popup__over.style.transition = 'transform 0.6s ease-in-out';
-            removeClassActive(0, counter);
+            popup__slider.classList.remove('active');
+            arrBox[0].classList.remove('active');
+            arrBox[counter].classList.remove('active');
             counter--;
             setActiveSlider(counter);
             getActiveSlider();
             popup__over.style.transform =
                 'translateY(' + -sizeSlide * counter + 'px)';
         };
-        function removeClassActive(numDf, counter) {
-            popup__slider.classList.remove('active');
-            arrBox[numDf].classList.remove('active');
-            arrBox[counter].classList.remove('active');
-        }
         popup__over.addEventListener('transitionend', () => {
             if (arrBox[counter].id == 'lastClone') {
                 popup__over.style.transition = 'none';
@@ -759,15 +758,13 @@ function setBgBoardPaint(imgUrl) {
     } else {
         paint_img.src = imgUrl;
     }
-    conditionHideButton(imgUrl);
 }
-conditionHideButton('');
+
 //tạo nút đóng mở popup
 function toggle() {
     blur.classList.toggle('active');
     popup.classList.toggle('active');
     popup__slider.classList.remove('active');
-    table_geometry.classList.remove('active');
     removePopup();
     clearCanvas();
     getImgBg();
@@ -827,27 +824,15 @@ function setBgBoardPaintDefault() {
     const isSet = confirm('Bạn sẽ phải vẻ lại từ đầu nếu chọn Vẽ Mặc Định 😥');
     if (isSet === true) {
         setBgBoardPaint('');
-        clearCanvas();
     }
 }
-function conditionHideButton(imgUrl) {
-    console.log(imgUrl);
 
-    if (imgUrl == '') {
-        default_canvas.disabled = true;
-    } else {
-        default_canvas.disabled = false;
-
-        default_canvas.addEventListener('click', setBgBoardPaintDefault, false);
-    }
-}
 // tạo hiệu ứng chọn ảnh cho người dùng biết
 function handleImageOnCanvas(slideEle) {
     for (let i = 0; i < slideEle.length; i++) {
         slideEle[i].onclick = function () {
             var imgUrl = slideEle[i].getAttribute('data-urlImg');
             popup__slider.classList.add('active');
-
             popup__upload.classList.remove('active');
             popup__slider.style.transition = '0.15s';
             isCheckBtn = true;
@@ -875,3 +860,4 @@ dispatchImg();
 // add event to call functions
 cancer_popup.addEventListener('click', toggle, false);
 show_popup.addEventListener('click', toggle, false);
+default_canvas.addEventListener('click', setBgBoardPaintDefault, false);

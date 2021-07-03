@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
     
 </head>
@@ -95,42 +95,6 @@
                         </button>
                     </div>
                     <div class="paint__draw">
-                        <div class="paint__geometry">
-                            <button class="paint__btn-table">
-                                <i class="fab fa-accusoft"></i>
-                                Vẽ Hình Học
-                            </button>
-                            <div class="paint__table-geometry">
-                                <div class="paint__draw-geometry">
-                                    <button class="geometry btn__horizontal-rule">
-                                        <i class="fas fa-slash"></i>
-                                    </button>
-                                    <button class="geometry btn__square">
-                                        <i class="far fa-square"></i>
-                                    </button>
-                                    <button class="geometry btn__circle">
-                                        <i class="far fa-circle"></i>
-                                    </button>
-                                    <button class="geometry btn__triangle">
-                                        <i class="far fa-triangle"></i>
-                                    </button>
-                                    <button class="geometry btn__hexagon">
-                                        <i class="far fa-hexagon"></i>
-                                    </button>
-                                </div>
-                                <div class="paint__custom-geometry">
-                                    <div class="paint__fill">
-                                        <span>Fill</span>
-                                        <input id="fillBox" type="checkbox" checked="checked">
-                                        
-                                    </div>
-                                    <div class="paint__Angle">
-                                        <span>Angle</span>
-                                        <input id="polygonAngle" type="range" step="22.5" min="0" max="90">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <button class="paint__show-popup" id="default">
                             <i class="fas fa-scroll"></i>
                             Vẽ Theo Mẫu
@@ -274,11 +238,10 @@
     <script src="canvas.js"></script>
     <script src="changeColor.js"></script>
     <script src="./materialStyles/normalPenStyles.js"></script>
-    <script src="./materialStyles/inkPenStyle.js"></script>    
+    <script src="./materialStyles/inkPenStyle.js"></script>   
     <script src="./materialStyles/oilPalmStyles.js"></script>   
     <script src="./materialStyles/sprayStyles.js"></script>
     <script src="./materialStyles/brushStyle.js"></script>
-    <script src="drawGeometry.js"></script>
     <script src="resizePen.js"></script>
     <script src="patternDrawing.js"></script>
 </body>
