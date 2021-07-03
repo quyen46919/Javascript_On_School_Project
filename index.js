@@ -5,14 +5,18 @@ const sprayStyleBtn = document.querySelector('.paint__material--spray');
 
 // ĐỔI TRẠNG THÁI ACTIVE CHO CÁC NÚT
 const materialBtns = document.querySelectorAll('.paint__material');
-for (let i = 0; i < materialBtns.length; i++) {
-    materialBtns[i].addEventListener('click', () => {
-        for (let i = 0; i < materialBtns.length; i++) {
+const geometryBtns = document.querySelectorAll('.geometry');
+
+const drawBtnArr = [...materialBtns, ...geometryBtns];
+
+for (let i = 0; i < drawBtnArr.length; i++) {
+    drawBtnArr[i].addEventListener('click', () => {
+        for (let i = 0; i < drawBtnArr.length; i++) {
             // bỏ hết active class của các nút khác
-            materialBtns[i].classList.remove('active');
+            drawBtnArr[i].classList.remove('active');
         }
         // chỉ add active class cho button được nhấn
-        materialBtns[i].classList.add('active');
+        drawBtnArr[i].classList.add('active');
     });
 }
 // ĐẶT KIỂU VẼ MẶT ĐỊNH LÀ NORMAL
