@@ -145,13 +145,13 @@ document.querySelector('.paint__change-color-changebox-box').addEventListener('c
     picker.onChange((color)=>{
         //CODE HIEN THI MAU
         const html =  `
-        <div class="paint__addcolor-container-input-background" id="paint__addcolor-container-input-background"></div>
-        <label class="paint__addcolor-container-input-background-label">Red</label>
-        <input  class="paint__addcolor-container-input-background-input" id="input-red" type="number" value="${color.r}">
-        <label class="paint__addcolor-container-input-background-label">Green</label>
-        <input  class="paint__addcolor-container-input-background-input" id="input-green" type="number" value="${color.g}">
-        <label class="paint__addcolor-container-input-background-label">Blue</label>
-        <input  class="paint__addcolor-container-input-background-input" id="input-blue" type="number" value="${color.b}">
+        <div class="paint__backgroundinput" id="paint__backgroundinput"></div>
+        <label class="paint__backgroundinput--label">Red</label>
+        <input  class="paint__backgroundinput--input" id="input-red" type="number" value="${color.r}">
+        <label class="paint__backgroundinput--label">Green</label>
+        <input  class="paint__backgroundinput--input" id="input-green" type="number" value="${color.g}">
+        <label class="paint__backgroundinput--label">Blue</label>
+        <input  class="paint__backgroundinput--input" id="input-blue" type="number" value="${color.b}">
        `
         
         document.querySelector('#paint__addcolor-container-input').innerHTML = html;

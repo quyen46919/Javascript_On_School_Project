@@ -694,17 +694,17 @@ z-index: 2;
     /* border: 3px solid rgba(15, 15, 15, 0.2); */
     cursor: pointer;
 }
-.paint__change-color{
-    flex: 2;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+.paint__h4{
+    height: 50px;
+    width: auto;
+    /* background-color: darkmagenta; */
+
 }
 #paint__change-color-picker{
     /* border: 3px solid rgba(15, 15, 15, 0.2); */
     cursor: pointer;
 }
-.paint__change-color-changebox{
+.paint__changeboxcolor{
     height: 50px;
     width: 100%;
     /* background-color: cadetblue; */
@@ -718,7 +718,7 @@ z-index: 2;
     border-radius: 5px;
     box-shadow: var(--box-shadow);
 }
-.paint__change-color-changebox-pen{
+.paint__changeboxcolor--pen{
 
     flex: 2;
     /* background-color: cornflowerblue; */
@@ -736,12 +736,12 @@ z-index: 2;
 }
 
 
-.paint__change-color-box{
+.paint__changecolorbox{
     height: 120px;
     width: 100%;
 }
 
-.paint__change-color-box-row{
+.paint__changecolorboxs{
     height:25%;
     width: 100%;
     overflow: hidden;
@@ -754,10 +754,10 @@ z-index: 2;
 .paint__change-color-box-row-rows:hover{
     border: solid 1px rgb(14, 158, 69);
 }
-.paint__change-color-box-row-rows{
+.paint__changecolorboxs--rows{
     flex: 1;
 }
-.paint__change-color-btn{
+.paint__changecolor--btn{
     height: 50px !important;
     width: 60% !important;
     margin: 0 auto;
@@ -799,24 +799,24 @@ z-index: 2;
     gap: 15px;
     display: flex;
 }
-.paint__addcolor-container-background{
+.paint__container-background{
     flex: 4;
     /* background-color: darkred; */
     height: auto;
 }
-.paint__addcolor-container-input{
+.paint__input{
     flex: 2;
     /* background-color: rgb(65, 61, 61); */
     height: 100%;
 
 }
-.paint__addcolor-container-background-bottom{
+.paint__container-background-bottom{
     /* height: 30px; */
     /* width: 100%; */
     /* background-color: rgb(223, 202, 13); */
     /* margin-bottom: 30px; */
 }
-.paint__addcolor-container-input-background{
+.paint__backgroundinput{
     height: 100px;
     width: 80%;
     background-color: rgb(252, 8, 8);
@@ -824,7 +824,7 @@ z-index: 2;
     margin: 0 auto;
     margin-bottom: 10px;
 }
-.paint__addcolor-container-input-background-input{
+.paint__backgroundinput--input{
     width: 76%;
     height: 30px;
 
@@ -834,7 +834,7 @@ z-index: 2;
     color: rgb(109, 109, 109);
     font-weight: bold;
 }
-.paint__addcolor-container-input-background-label{
+.paint__backgroundinput--label{
     font-size: 1.2rem;
     font-weight: lighter;
     margin-top: 10px;
@@ -996,4 +996,11 @@ input[type=range] {
     width:160px; 
     cursor: pointer;
     transform: translateX(17px);
+}
+.paint__addcolor{
+    position: absolute;
+    height: 550px;
+    width: 550px;
+    background-color: rgb(235, 235, 235);
+
 }
