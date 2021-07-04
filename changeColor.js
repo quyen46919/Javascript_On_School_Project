@@ -1,21 +1,31 @@
 
+// Declare DOM variables
 var inputred = document.getElementById("input-red");
+console.log(inputred);
 var inputgreen = document.getElementById("input-green");
 var inputblue = document.getElementById("input-blue");
-var btnaadcolor = document.getElementById("btnAddColor")
-var changecolorbox = document.getElementById("changecolorbox")
-var rmadd = document.querySelector('.paint__addcolor');
-var cancelbtn = document.querySelector('.paint__addcolor-container-btn-cancel');
-var addcolorbtn = document.querySelector('.paint__addcolor-container-btn-add');
+var btnaadcolor = document.getElementById("btnAddColor");
+var changecolorbox = document.getElementById("changecolorbox");
+var popupPicker = document.querySelector('.paint__addcolor');
+var cancelbtn = document.querySelector('.paint__picker--cancel');
+var addcolorbtn = document.querySelector('.paint__picker--add');
+const blurBg = document.querySelector('.paint__blur-bg');
 
+// add Active class Event
 document.querySelector('#changecolorbox').style.backgroundColor = draw_color;
 cancelbtn.addEventListener('click',(e)=>{
-    rmadd.classList.add('paint__addcolor-transform');
-    document.querySelector('.paint__blur-bg').classList.remove('active');
+    popupPicker.classList.remove('active');
+    blurBg.classList.remove('active');
 })
 document.getElementById("btnAddColor").style.backgroundColor = draw_color;
-const colorpickers = [...document.querySelectorAll('.paint__change-color-box-row-rows')]
+const colorpickers = [...document.querySelectorAll('.paint__color-box')];
 
+document.querySelector('#changecolorbox').addEventListener('click',(e) =>{
+    popupPicker.classList.add('active');
+    blurBg.classList.add('active');
+})
+
+// create Picker Class
 class Picker {
     constructor(target, width, height){
        this.target = target;
@@ -28,7 +38,7 @@ class Picker {
        this.contexts = this.target.getContext("2d");
 
        //circle
-       this.pickerCircle = {x : 10, y : 10 , width : 8, height: 8};
+       this.pickerCircle = {x : 10, y : 10 , width : 10, height: 10};
 
        this.listenForEvents();
    }
@@ -107,23 +117,18 @@ class Picker {
    }
    getPickedColor(){
     let imageData = this.contexts.getImageData(this.pickerCircle.x,
- this.pickerCircle.y, 1, 1);
+        this.pickerCircle.y, 1, 1);
     return {r: imageData.data[0], g: imageData.data[1], b: imageData.data[2]}
+    }
+    onChange(callback) {
+    this.onChangeCallback = callback;
+    }
 }
-onChange(callback) {
-   this.onChangeCallback = callback;
-}
-}
 
 
-
-
-let picker = new Picker(document.getElementById("paint__change-color-picker"), 350, 310);
+let picker = new Picker(document.getElementById("paint__background--canvas"), 350, 310);
 //Draw
 setInterval(() =>picker.draw(), 1); 
-
-//CODE CHON MAU NHAP BANG TAY
-var inputRed = 0;   
 
 
 //CODE CHON MAU O BANG CO SAN
@@ -131,61 +136,56 @@ colorpickers.forEach(colorpicker => {
     colorpicker.addEventListener('click', (e) => {
         draw_color = e.target.style.backgroundColor;
         document.getElementById("changecolorbox").style.backgroundColor = draw_color;
-        document.getElementById("btnAddColor").style.backgroundColor= draw_color;
         changecolorbox.style.backgroundColor= draw_color;
-
     })
 })
 
-document.querySelector('.paint__change-color-changebox-box').addEventListener('click',(e) =>{
-    rmadd.classList.remove('paint__addcolor-transform');
-    document.querySelector('.paint__blur-bg').classList.add('active');
-})
-
-    picker.onChange((color)=>{
-        //CODE HIEN THI MAU
-        const html =  `
-        <div class="paint__backgroundinput" id="paint__backgroundinput"></div>
-        <label class="paint__backgroundinput--label">Red</label>
-        <input  class="paint__backgroundinput--input" id="input-red" type="number" value="${color.r}">
-        <label class="paint__backgroundinput--label">Green</label>
-        <input  class="paint__backgroundinput--input" id="input-green" type="number" value="${color.g}">
-        <label class="paint__backgroundinput--label">Blue</label>
-        <input  class="paint__backgroundinput--input" id="input-blue" type="number" value="${color.b}">
-       `
-        
-        document.querySelector('#paint__addcolor-container-input').innerHTML = html;
-        var backgroundColor = `rgba(${color.r}, ${color.g},${color.b},${opacityValue})`;
-      
-        document.getElementById("paint__addcolor-container-input-background").style.backgroundColor = backgroundColor;
-
-        //CODE ADD MAU RA NGOAI
-        addcolorbtn.addEventListener('click',(e) =>{
-            rmadd.classList.add('paint__addcolor-transform');
-            draw_color = backgroundColor;
-            console.log(draw_color)
-            document.getElementById("changecolorbox").style.backgroundColor = draw_color;
-            document.getElementById("btnAddColor").style.backgroundColor= draw_color;
-            document.querySelector('.paint__blur-bg').classList.remove('active');
-
-        inputred.addEventListener('keyup',(e)=>{
-            inputRed = +e.target.value;
-            var inputGreen = 0;
-            inputgreen.addEventListener('keyup',(e)=>{
-                inputGreen = +e.target.value;
-                var inputBlue = 0;
-                inputblue.addEventListener('keyup',(e)=>{
-                    inputBlue = +e.target.value;
-                    draw_color = `rgba(${inputRed}, ${inputGreen},${inputBlue},${opacityValue})`;
-                    document.getElementById("paint__addcolor-container-input-background").style.backgroundColor= draw_color  
-                })
-                console.log(draw_color)
-            })
-        });
-    })
-
-    } 
+//Mỗi lần chọn lại màu ở Picker thì cũng thay đổi ở bảng hiển thị bên cạnh
+picker.onChange((color)=>{
+    const html = `
+        <div class="paint__picker--show"></div>
+        <label class="paint__picker--label">Red</label>
+        <input class="paint__picker-input" id="input-red" type="number" value="${color.r}">
+        <label class="paint__picker--label">Green</label>
+        <input class="paint__picker-input" id="input-green" type="number" value="${color.g}">
+        <label class="paint__picker--label">Blue</label>
+        <input class="paint__picker-input" id="input-blue" type="number" value="${color.b}">
+    `
     
-    )
+    document.querySelector('#paint__input').innerHTML = html;
+    var backgroundColor = `rgb(${color.r}, ${color.g},${color.b})`;
+    document.querySelector('.paint__picker--show').style.backgroundColor = backgroundColor;
+
+    //CODE ADD MAU RA NGOAI
+    addcolorbtn.addEventListener('click',(e) =>{
+        popupPicker.classList.add('active');
+        draw_color = backgroundColor;
+        document.getElementById("changecolorbox").style.backgroundColor = draw_color;
+        document.getElementById("btnAddColor").style.backgroundColor= draw_color;
+        blurBg.classList.remove('active');
+        popupPicker.classList.remove('active');
+    })
+});
+
+// thay đổi màu bằng cách nhập các tham số RGB
+// VẪN CÒN BUG Ở CHỖ NÀY
+// KHÔNG THỂ NHẤN VÀO THAY ĐỔI GIÁ TRỊ CỦA Ô INPUT ĐƯỢC
+var inputRed = 0;
+var inputGreen = 0;   
+var inputBlue = 0;
+inputred.onkeyup = (e) =>{
+    inputRed = +e.target.value;
+    console.log(inputRed)
+    inputgreen.addEventListener('keyup',(e)=>{
+        inputGreen = +e.target.value;
+        console.log(inputGreen)
+        inputblue.addEventListener('keyup',(e)=>{
+            inputBlue = +e.target.value;
+            draw_color = `rgb(${inputRed},${inputGreen},${inputBlue})`;
+            document.querySelector('.paint__picker--show').style.backgroundColor= draw_color;
+        })
+        console.log(draw_color)
+    })
+};
    
 

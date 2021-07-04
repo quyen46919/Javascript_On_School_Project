@@ -126,13 +126,16 @@
                                 </div>
                                 <div class="paint__custom-geometry">
                                     <div class="paint__fill">
-                                        <span>Làm đầy</span>
+                                        <div class="paint__geometry--label">
+                                            <span>Làm đầy</span>
+                                        </div>
                                         <input id="fillBox" type="checkbox" >
-                                        
                                     </div>
                                     <div class="paint__Angle">
-                                        <span>Angle</span>
-                                        <input id="polygonAngle" type="range" step="22.5" min="0" max="90">
+                                        <div class="paint__geometry--label">
+                                            <span>Xoay góc</span>
+                                        </div>
+                                        <input id="polygonAngle" type="range" step="1" min="0" max="90">
                                     </div>
                                 </div>
                             </div>
@@ -154,30 +157,30 @@
                     </div>
                     <canvas id="canvas"></canvas>
                 </div>
+                <!-- fix Nghia's div class -- Quyen -->
                 <div class="paint__blur-bg"></div>
                 <div class="paint__addcolor paint__addcolor-transform">
-                    <div class="paint__addcolor-h4">
-                        <h4>Chọn màu</h4>
+                    <div class="paint__picker-title">
+                        <h3>Chọn màu</h3>
                     </div>
-                    <div class="paint__container">
-                        <div class="paint__backgruond">
-                            <div class="paint__backgruond--top"></div>
-                            <canvas id="paint__backgruond--canvas"></canvas> 
+                    <div class="paint__picker-container">
+                        <div class="paint__picker-left">
+                            <canvas id="paint__background--canvas"></canvas> 
                         </div>
-                        <div class="paint__input" id="paint__input">
-                            <div class="paint__backgroundinput" id="paint__backgroundinput"></div>
-                            <label class="paint__backgroundinput--label">Red</label>
-                            <input  class="paint__backgroundinput--input" id="input-red"  type="number" value="255">
-                            <label class="paint__backgroundinput--label">Green</label>
-                            <input  class="paint__backgroundinput--input" type="number" value="0">
-                            <label class="paint__backgroundinput--label" >Blue</label>
-                            <input  class="paint__backgroundinput--input" id="input-blue" type="number" value="0">
+                        <div class="paint__picker-right" id="paint__input">
+                            <div class="paint__picker--show"></div>
+                            <label class="paint__picker--label">Red</label>
+                            <input  class="paint__picker-input" id="input-red"  type="number" value="0">
+                            <label class="paint__picker--label">Green</label>
+                            <input  class="paint__picker-input" id="input-blue" type="number" value="0">
+                            <label class="paint__picker--label" >Blue</label>
+                            <input  class="paint__picker-input" id="input-blue" type="number" value="0">
                         </div>
                        
                     </div>
-                    <div class="paint__addcolor-container-input-btn">
-                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-add">Chọn màu này</button>
-                        <button class="paint__addcolor-container-btn-box paint__addcolor-container-btn-cancel">Hủy</button>
+                    <div class="paint__button--wrapper">
+                        <button class="paint__color-picker--button paint__picker--add">Chọn màu này</button>
+                        <button class="paint__color-picker--button paint__picker--cancel">Hủy</button>
                     </div>
                 </div>
                 <!-- end paint__addcolor -->
@@ -212,10 +215,11 @@
                     <input type="range" min="1" max="50" value="10" id="slider1">
                 </div>
                 <!-- end paint__pen-size -->
+
+                <!-- FIX DIV CLASS CSS -->
+                <!-- Author: Quyen -->
                 <div class="paint__pen-opacity">
-                    <div class="paint__title">ĐỘ LÀM MỜ CỦA BÚT DẦU</div>
-                    
-                    <!-- fix input range from 0/1000 to 0/30 for shadow blur -->
+                    <div class="paint__title">ĐỘ LÀM MỜ CỦA CỌ DẦU</div>
                     <div class="paint__selector2">
                         <span>Size: </span>
                         <div class="selectValue selectValue2"></div>
@@ -225,60 +229,52 @@
                 <!-- end paint__pen-opacity -->
                 <div class="paint__change-color">
                     <div class="paint__title">CHỌN MÀU</div>
-                    <div class="paint__change-color-changebox">
-                        <div class="paint__change-color-changebox-box" id="changecolorbox"></div>
-                        <div class="paint__change-color-changebox-pen">
+                    <div class="paint__pick-color">
+                        <div class="paint__show-color" id="changecolorbox"></div>
+                        <div class="paint__icon--wrapper">
                             <i class="fas fa-eye-dropper"></i>
                         </div>
                     </div>
                     <div class="paint__change-color-box">
-                        <div class="paint__change-color-box-row">
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 255, 255);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(195, 195, 195);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(88, 88, 88);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 0, 0);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 0, 13);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(241, 73, 80 );"></div>
-                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(228, 64, 151 );"></div> -->
-                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(233, 102, 172);"></div> -->
+                        <div class="paint__color-line">
+                            <div class="paint__color-box" style="background-color: rgb(255, 255, 255);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(195, 195, 195);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(88, 88, 88);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(0, 0, 0);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(255, 0, 13);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(241, 73, 80 );"></div>
                         </div>
-                        <div class="paint__change-color-box-row">
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(228, 64, 151 );"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(233, 102, 172);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 162, 0);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 251, 195);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 168, 143);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 185, 165);"></div>
-                            <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(66, 68, 153);"></div> -->
-                          <!-- <div class="paint__change-color-box-row-rows" style="background-color: rgb(184, 105, 173);"></div> -->
+                        <div class="paint__color-line">
+                            <div class="paint__color-box" style="background-color: rgb(228, 64, 151 );"></div>
+                            <div class="paint__color-box" style="background-color: rgb(233, 102, 172);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(254, 162, 0);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(255, 251, 195);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(0, 168, 143);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(51, 185, 165);"></div>
                         </div>
-                        <div class="paint__change-color-box-row">
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(243, 112, 32);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(245, 141, 77);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(249, 187, 148);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(253, 228, 212);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(247, 143, 30);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(203, 128, 1);"></div>
-                            
+                        <div class="paint__color-line">
+                            <div class="paint__color-box" style="background-color: rgb(243, 112, 32);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(245, 141, 77);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(249, 187, 148);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(253, 228, 212);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(247, 143, 30);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(203, 128, 1);"></div>  
                         </div>
-                        <div class="paint__change-color-box-row">
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 194, 15);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(255, 206, 63);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 242, 0);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(254, 245, 51);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(141, 253, 7);"></div>
-                            <div class="paint__change-color-box-row-rows" style="background-color: rgb(164, 253, 57);"></div>
-                            
-
+                        <div class="paint__color-line">
+                            <div class="paint__color-box" style="background-color: rgb(255, 194, 15);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(255, 206, 63);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(254, 242, 0);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(254, 245, 51);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(141, 253, 7);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(164, 253, 57);"></div>
                         </div>
-                        <div class="paint__change-color-box-row">
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(0, 146, 206);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(51, 168, 216);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(1, 84, 164 );"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(52, 118, 182);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(107, 67, 155);"></div>
-                          <div class="paint__change-color-box-row-rows" style="background-color: rgb(137, 105, 175);"></div>
-                          
+                        <div class="paint__color-line">
+                          <div class="paint__color-box" style="background-color: rgb(0, 146, 206);"></div>
+                          <div class="paint__color-box" style="background-color: rgb(51, 168, 216);"></div>
+                          <div class="paint__color-box" style="background-color: rgb(1, 84, 164 );"></div>
+                          <div class="paint__color-box" style="background-color: rgb(52, 118, 182);"></div>
+                          <div class="paint__color-box" style="background-color: rgb(107, 67, 155);"></div>
+                          <div class="paint__color-box" style="background-color: rgb(137, 105, 175);"></div>
                         </div>
                     </div>
                     <button class="paint__change-color-btn" id="btnAddColor" style="display: none">Add Color</button>
