@@ -1,4 +1,5 @@
 
+
 @media (max-width: 1266px){
     /* styles for popup */
     #popup{
@@ -6,30 +7,46 @@
     }
     /* styles for tool bar */
     .paint__options-canvas{
-        flex: 1;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
     }
     /* styles for options panel */
     .paint__option{
-        flex: 0;
+        -webkit-box-flex: 0;
+            -ms-flex: 0;
+                flex: 0;
         position: absolute;
         right: 0;
         width: 300px;
         background: white;
         display: none;
-        animation: rightToLeft .25s 1 forwards;
+        -webkit-animation: rightToLeft .25s 1 forwards;
+                animation: rightToLeft .25s 1 forwards;
+    }
+    @-webkit-keyframes rightToLeft {
+        from { right: -300px; opacity: 0;}
+        to { right: 0; opacity: 1;}
     }
     @keyframes rightToLeft {
         from { right: -300px; opacity: 0;}
         to { right: 0; opacity: 1;}
     }
     .paint__option.inactive{
-        animation: leftToRight .25s 1 forwards;
+        -webkit-animation: leftToRight .25s 1 forwards;
+                animation: leftToRight .25s 1 forwards;
+    }
+    @-webkit-keyframes leftToRight {
+        from { right: 0; opacity: 1;}
+        to { right: -300px; opacity: 0;}
     }
     @keyframes leftToRight {
         from { right: 0; opacity: 1;}
         to { right: -300px; opacity: 0;}
     }
     .paint__option.active{
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
     }
     .paint__option-panel--bar{
@@ -38,9 +55,15 @@
         width: 80px!important;
         background: rgb(46, 185, 219)!important;
         color: white;
+        display: -webkit-box!important;
+        display: -ms-flexbox!important;
         display: flex!important;
-        justify-content: center;
-        align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
     }
     .paint__option-panel--bar button{
         height: 100%;
@@ -70,9 +93,14 @@
     /* styles for picker */
     .paint__addcolor{
         width: 100vw;
+        height: auto;
+        top: 10px;
     }
     .paint__picker-container{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     /* styles for popup */
     #popup{
@@ -81,7 +109,10 @@
         top: 67%;
     }
     .popup__content{
-        flex-direction: column;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
     }
     .popup__content-left{
         width: 100%;

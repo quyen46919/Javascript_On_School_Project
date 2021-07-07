@@ -125,7 +125,7 @@ class Picker {
 }
 
 
-let picker = new Picker(document.getElementById("paint__background--canvas"), 350, 310);
+let picker = new Picker(document.getElementById("paint__background--canvas"), 320, 280);
 //Draw
 setInterval(() =>picker.draw(), 1); 
 
