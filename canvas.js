@@ -19,46 +19,10 @@ var opacityValue = 1;
 
 // FIX CANVAS RESPONSIVE DEPEND ON WINDOW INNERHEIGHT
 // Author: Quyen
+// Set default width and height of canvas
 
-    // Set default width and height of canvas
-    
-    canvas.width = 1024;
-    canvas.height = 550;
-    // responsive
-    // window.addEventListener('resize', function(e) {
-    //     // var windowY = window.innerHeight;
-    //     var windowX = window.innerWidth;
-
-    //     if (windowX < 1600 && windowX > 1400){
-    //         canvas.width = 1024;
-    //         canvas.height = 550;
-    //         console.log("1");
-    //     }
-    //     else if (windowX <= 1400 && windowX > 1200){
-    //         canvas.width = 800;
-    //         canvas.height = 550;
-    //         console.log("2");
-    //     }
-    //     else if (windowX <= 1200 && windowX > 900){
-    //         canvas.width = 300;
-    //         canvas.height = 550;
-    //         console.log("3");
-    //     }
-    //     else if (windowX <= 900 && windowX > 400){
-    //         canvas.width = 300;
-    //         canvas.height = 550;
-    //         console.log("4")
-    //     }
-    //     else{
-    //         canvas.width = 320;
-    //         canvas.height = 550;
-    //         console.log("5");
-    //     }
-    //     return canvas.width, canvas.height;
-    // }, true);
-    
-
-
+canvas.width = 1024;
+canvas.height = 550;
 
 var context = canvas.getContext('2d');
 context.fillStyle = start_background_color;
@@ -100,6 +64,15 @@ function undo() {
         context.putImageData(restore_array[index], 0, 0);
     }
 }
+
+function CtrlZ(e) {
+    var evtobj = window.event? e : e
+    if (evtobj.keyCode == 90 && evtobj.ctrlKey) undo();
+
+    if (evtobj.keyCode == 46 && evtobj.ctrlKey) clearCanvas();
+}
+
+document.onkeydown = CtrlZ;
 clear_btn.addEventListener('click', clearCanvas);
 undo_btn.addEventListener('click', undo);
 // funtions

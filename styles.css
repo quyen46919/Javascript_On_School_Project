@@ -299,7 +299,7 @@ p, span { font-size: 13px!important;}
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    display: none;
+    overflow: hidden;
 }
 #canvas {
     opacity: 0.9;
@@ -1179,6 +1179,25 @@ z-index: 2;
             align-items: center;
     gap: 0.5rem;
 }
+.paint__input-wrapper{
+    display: flex;
+}
+.paint__input-wrapper p{
+
+}
+input#polygonAngle,
+input#polygonSides {
+    width: 40px;
+    outline: none;
+    border-radius: 3px;
+    border: none;
+    background: #ececec;
+    padding: 0.3rem;
+}
+.paint__sides{
+    display: flex;
+    gap: 1rem;
+}
 .paint__draw-geometry img{
     height: 20px;
     /* width: 100%; */
@@ -1210,16 +1229,20 @@ z-index: 2;
 .paint__custom-geometry {
     height: auto;
     width: 100%;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0.5rem 1.5rem 0 1.5rem;
+    gap: 1rem;
+
+}
+.paint__custom-geo--wrapper{
+    display: flex;
+    width: 100%;
 }
 .paint__fill {
-    padding: 10px 15px 0 24px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1228,9 +1251,10 @@ z-index: 2;
             align-items: center;
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
-            justify-content: space-between;
+            justify-content: center;
     width: 40%;
     height: 35px;
+    gap: 0.7rem;
 }
 input[type=range] {
     height: 34px;
@@ -1271,7 +1295,7 @@ input[type=range] {
     outline: none;
 }
 .paint__Angle {
-    padding: 0px 15px;
+    flex: 1;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -1279,7 +1303,7 @@ input[type=range] {
         -ms-flex-align: center;
             align-items: center;
     -ms-flex-pack: distribute;
-        justify-content: space-around;
+        justify-content: center;
 }
 .paint__Angle span{
     -webkit-transform: translate(7px, 0px);

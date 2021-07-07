@@ -12,6 +12,8 @@ const btn_star = $('.btn__star');
 
 const btn_fillBox = $('#fillBox');
 const btn_angle = $('#polygonAngle');
+const radiusDeg = $('input#polygonAngle');
+const polygonSides = $('input#polygonSides');
 //end DOM
 
 //Validate
@@ -24,6 +26,16 @@ let oldImage = null;
 
 context.fillStyle = start_background_color;
 // end Validation
+
+// Lấy deg người dùng nhập vào
+var deg = 0;
+var polygonSideValue = 6;
+radiusDeg.addEventListener('keyup', (e) => {
+    deg = +e.target.value;
+});
+polygonSides.addEventListener('keyup', (e) => {
+    polygonSideValue = +e.target.value;
+})
 
 // function
 // bặt tắt show bảng tuỳ chọn
@@ -120,9 +132,8 @@ function ChangeCircle() {
 // lấy hình Tam giác
 function ChangeTriangle() {
     canvas.onmousemove = function (e) {
-        let polygonAngleVal = btn_angle.value;
         if (is_drawing) {
-            drawPolygon(e, startPos, 3, polygonAngleVal * (Math.PI / 90));
+            drawPolygon(e, startPos, 3, deg * (Math.PI / 180));
         }
         e.preventDefault();
     };
@@ -143,9 +154,8 @@ function ChangeSquare() {
 // lấy hình đa giác
 function ChangeHexagon() {
     canvas.onmousemove = function (e) {
-        let polygonAngleVal = btn_angle.value;
         if (is_drawing) {
-            drawPolygon(e, startPos, 6, polygonAngleVal * (Math.PI / 90));
+            drawPolygon(e, startPos, polygonSideValue, deg * (Math.PI / 180));
         }
         e.preventDefault();
     };
@@ -198,18 +208,20 @@ function drawRectangle(e, startPos) {
     context.stroke();
     e.preventDefault();
 }
-//vẽ hình vuông
+
+// FIX DRAW SQUARE
+// Author: Quyen
 function drawSquare(e, startPos) {
     undoClick();
     mouseEvent(e);
     context.strokeStyle = draw_color;
-    context.lineWidth = draw_width;
+    context.lineWidth = draw_width ;
     fillValueCheck();
     context.beginPath();
     context.rect(
         startPos.x,
         startPos.y,
-        100, 100
+        mouse.x, mouse.x
     );
     context.stroke();
     e.preventDefault();
@@ -246,11 +258,11 @@ function drawPolygon(e, startPos, sides, angle) {
     context.lineWidth = draw_width;
     fillValueCheck();
     var coordinates = [],
-        radius = Math.sqrt(
-            Math.pow(startPos.x - endPosX, 2) +
-                Math.pow(startPos.y - endPosY, 2),
-        ),
-        index = 0;
+    radius = Math.sqrt(
+        Math.pow(startPos.x - endPosX, 2) +
+            Math.pow(startPos.y - endPosY, 2),
+    ),
+    index = 0;
     context.beginPath();
     for (index = 0; index < sides; index++) {
         coordinates.push({

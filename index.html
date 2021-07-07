@@ -124,17 +124,29 @@
                                     </button> -->
                                 </div>
                                 <div class="paint__custom-geometry">
-                                    <div class="paint__fill">
-                                        <div class="paint__geometry--label">
-                                            <span>Làm đầy</span>
+                                    <div class="paint__custom-geo--wrapper">
+                                        <div class="paint__fill">
+                                            <div class="paint__geometry--label">
+                                                <span>Làm đầy</span>
+                                            </div>
+                                            <input id="fillBox" type="checkbox" >
                                         </div>
-                                        <input id="fillBox" type="checkbox" >
+                                        <div class="paint__Angle">
+                                            <div class="paint__geometry--label">
+                                                <span>Xoay góc</span>
+                                            </div>
+                                            <input id="polygonAngle" type="number" value="0">
+                                        </div>
                                     </div>
-                                    <div class="paint__Angle">
-                                        <div class="paint__geometry--label">
-                                            <span>Xoay góc</span>
+                                    <div class="paint__custom-geo--wrapper">
+                                        <div class="paint__sides">
+                                            <div class="paint__geometry--label">
+                                                <span>Số cạnh đa giác</span>
+                                            </div>
+                                            <input id="polygonSides" type="number" value="6" min="4" max="12">
                                         </div>
-                                        <input id="polygonAngle" type="range" step="1" min="0" max="90">
+                                        <div class="paint__sides">
+                                        </div>
                                     </div>
                                 </div>
                             </div>
