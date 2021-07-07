@@ -1,10 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400&display=swap');
+html {
+    width: 100%!important;
+    min-width: 100%!important;
+    height: 100%!important;
+    min-height: 100%!important;
+}
 body{
+    width: 100%;
+    height: 100%;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Roboto'!important;
-
 }
 :root{
     --option-width: 200px;
@@ -35,7 +42,7 @@ p, span { font-size: 13px!important;}
 }
 .paint button{
     height: 100%;
-    width: 150px;
+    width: auto;
     background-color: transparent;
     border: none;
     box-sizing: border-box;
@@ -77,6 +84,9 @@ p, span { font-size: 13px!important;}
 }
 /* ---------------------------------------------------- */
 /* canvas, direc and options styles */
+.paint__option-panel--bar{
+    display: none!important;
+}
 .paint__options-canvas{
     display: flex;
     flex-direction: column;
@@ -123,7 +133,14 @@ p, span { font-size: 13px!important;}
     padding: 1rem;
     gap: 1rem;
 }
-/* PhÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â§n nÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â y t cÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â³ sÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚Â»Ãƒâ€šÃ‚Â­a lÃƒÆ’Ã‚Â¡Ãƒâ€šÃ‚ÂºÃƒâ€šÃ‚Â¡i flex  */
+/* -------------------------------- */
+/* STYLES FOR LEFT PANEL */
+.paint__pen--material{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 .paint__pen-size{
     flex: .5;
     width: 100%;
@@ -139,7 +156,7 @@ p, span { font-size: 13px!important;}
 }
 /* ===== */
 .paint__pen-material{
-    height: 100px;
+    height: auto;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -189,9 +206,10 @@ p, span { font-size: 13px!important;}
     filter: blur(1px);
     display: flex;
     justify-content: center;
+    display: none;
 }
 #canvas {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 /*--------------------------------------------------*/
@@ -212,7 +230,7 @@ p, span { font-size: 13px!important;}
     background: #fff;
     border-radius: 10px;
     width: 50%;
-    height: 600px;
+    height:450px;
     visibility: hidden;
     opacity: 0;
     transition: 0.5s;
@@ -265,6 +283,17 @@ p, span { font-size: 13px!important;}
     height: 100%;
     padding: 0px 10px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.popup__label-button{
+    height: 350px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 .popup__content-right {
     width: 50%;
@@ -276,8 +305,7 @@ p, span { font-size: 13px!important;}
     width: 100%;
     height: 15%;
     text-align: center;
-    position: relative;
-    top: 4%;
+    margin-top: 2rem;
 }
 .popup__title h2 {
     font-size: 24px;
@@ -289,18 +317,16 @@ p, span { font-size: 13px!important;}
     font-size: 15px;
 }
 .popup__content-left .popup__upload {
-    width: 70%;
-    height: 40%;
-    position: absolute;
+    width: 80%;
+    height: 60%;
     border-radius: 10px;
     cursor: pointer;
     box-shadow: 1px 2px 5px rgb(0 0 0 / 44%);
     overflow: hidden;
-    top: 39%;
-    left: 14%;
+    position: relative;
 }
 .popup__content-left .popup__upload.active{
-    border: 4px solid rgb(0, 171, 26);
+    border: 2px solid rgb(0, 171, 26);
 }
 
 #displayImg {
@@ -331,25 +357,24 @@ p, span { font-size: 13px!important;}
 .popup__content-left .popup__upload .popup__photos {
     position: absolute;
     top: 40%;
-    left: 43%;
+    left: 47%;
     font-size: 33px;
     color: #4b4c4d;
 }
 .popup__content-left .popup__upload  span {
     position: fixed;
-    bottom: 16%;
+    bottom: 26%;
     left: 20%;
     font-size: 13px;
 }
 
 .popup__btn-optional {
-    position: absolute;
-    width: 25%;
-    height: 29px;
-    bottom: 6%;
-    left: 15%;
+    width: 40%;
+    height: 40px;
 }
 .popup__btn-optional .popup__btn{
+    width: 100%;
+    height: 100%;
     cursor: pointer;
     transition: 0.25s;
     position: relative;
@@ -437,7 +462,7 @@ p, span { font-size: 13px!important;}
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 10px;
+    top: 11px;
     left: 45%;
     cursor: pointer;
     transition: 0.75s;
@@ -458,11 +483,10 @@ p, span { font-size: 13px!important;}
     align-items: center;
     justify-content: center;
     position: absolute;
-    bottom: 10px;
+    bottom: 25px;
     left: 45%;
     transition: 0.75s;
     color: #07060640;
-
 }
 .popup__slider {
     position: absolute;
@@ -501,8 +525,9 @@ p, span { font-size: 13px!important;}
 }
 .popup__slider .popup__slide .popup__img {
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 10px;
+    object-fit: scale-down;
 }
 .popup__over {
     width: 100%;
@@ -611,16 +636,8 @@ p, span { font-size: 13px!important;}
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 0.5rem;
+    margin: 0.5rem 0;
 }
-/* .paint__selectBtn {
-    height: 20px;
-    width: 20px;
-    background: transparent;
-    border-radius: 50%;
-    background-position: center;
-    position: absolute;
-    /* bottom: 38rem; */
 
 .selectValue {
 width: 58px;
@@ -841,18 +858,20 @@ z-index: 2;
 
 /* --------------------------------------------  */
 /* Draw shape styles */
+.paint__geometry{
+    position: relative;
+}
 .paint__geometry .paint__btn-table {
     cursor: pointer;
-    position: relative;
 }
 .paint__table-geometry {
     position: absolute;
+    left: -55%;
+    top: 50px;
     width: 300px;
     height: auto;
     background: white;
     border-radius: 5px;
-    top: 50px;
-    right: 34%;
     z-index: 9;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.153);
     transform: scale(0.1);

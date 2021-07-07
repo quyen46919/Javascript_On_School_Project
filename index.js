@@ -37,3 +37,20 @@ sprayStyleBtn.addEventListener('click', () => {
     sprayDraw();
     console.log('spray pen draw');
 });
+
+// Hiển thị right panel khi ấn bar button
+const openLeftPanelBtn = document.querySelector('.paint__open');
+const leftPanel = document.querySelector('.paint__option');
+const closeLeftPanelBtn = document.querySelector('.paint__close');
+openLeftPanelBtn.addEventListener('click', () => {
+    leftPanel.classList.remove('inactive');
+    leftPanel.classList.add('active');
+});
+closeLeftPanelBtn.addEventListener('click', () => {
+    leftPanel.classList.add('inactive');
+    setTimeout(()=>{
+        if(leftPanel.classList.contains('inactive')){
+            leftPanel.classList.remove('active');
+        }
+    },500)
+})

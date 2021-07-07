@@ -1,11 +1,13 @@
-// Phần code của Tài
-// range size
+
+
+// ADD PX TO INPUT NUMBER
+// Author: Quyen
 var slider1 = document.getElementById('slider1');
 
 var selectValue1 = document.querySelector('.selectValue1');
 selectValue1.innerHTML = slider1.value;
 slider1.oninput = function () {
-    selectValue1.innerHTML =  this.value;
+    selectValue1.innerHTML =  `${this.value}px`;
     draw_width = this.value;
 }
 

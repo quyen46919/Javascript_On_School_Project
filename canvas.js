@@ -14,12 +14,51 @@ let is_drawing = false;
 var restore_array = [];
 var index = -1;
 var isCheckBtn = false;
-var draw_width = 10;
+var draw_width = 5;
 var opacityValue = 1;
 
-// MAKE CANVAS
-canvas.width = 1024;
-canvas.height = 550;
+// FIX CANVAS RESPONSIVE DEPEND ON WINDOW INNERHEIGHT
+// Author: Quyen
+
+    // Set default width and height of canvas
+    
+    canvas.width = 1024;
+    canvas.height = 550;
+    // responsive
+    // window.addEventListener('resize', function(e) {
+    //     // var windowY = window.innerHeight;
+    //     var windowX = window.innerWidth;
+
+    //     if (windowX < 1600 && windowX > 1400){
+    //         canvas.width = 1024;
+    //         canvas.height = 550;
+    //         console.log("1");
+    //     }
+    //     else if (windowX <= 1400 && windowX > 1200){
+    //         canvas.width = 800;
+    //         canvas.height = 550;
+    //         console.log("2");
+    //     }
+    //     else if (windowX <= 1200 && windowX > 900){
+    //         canvas.width = 300;
+    //         canvas.height = 550;
+    //         console.log("3");
+    //     }
+    //     else if (windowX <= 900 && windowX > 400){
+    //         canvas.width = 300;
+    //         canvas.height = 550;
+    //         console.log("4")
+    //     }
+    //     else{
+    //         canvas.width = 320;
+    //         canvas.height = 550;
+    //         console.log("5");
+    //     }
+    //     return canvas.width, canvas.height;
+    // }, true);
+    
+
+
 
 var context = canvas.getContext('2d');
 context.fillStyle = start_background_color;
@@ -41,10 +80,7 @@ function mouseEvent(event) {
     //then scale to canvas coordinates by multiplying the normalized coords with the canvas resolution
     mouse.x *= canvas.width;
     mouse.y *= canvas.height;
-    // mouse.x = (event.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-    // mouse.y = (event.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
 }
-// context.moveTo(e.clientX - offsetX, e.clientY - offsetY);
 
 // UNDO AND CLEAR FUNCTION
 function clearCanvas() {

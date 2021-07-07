@@ -1,0 +1,120 @@
+
+@media (max-width: 1266px){
+    /* styles for popup */
+    #popup{
+        width: 60%;
+    }
+    /* styles for tool bar */
+    .paint__options-canvas{
+        flex: 1;
+    }
+    /* styles for options panel */
+    .paint__option{
+        flex: 0;
+        position: absolute;
+        right: 0;
+        width: 300px;
+        background: white;
+        display: none;
+        animation: rightToLeft .25s 1 forwards;
+    }
+    @keyframes rightToLeft {
+        from { right: -300px; opacity: 0;}
+        to { right: 0; opacity: 1;}
+    }
+    .paint__option.inactive{
+        animation: leftToRight .25s 1 forwards;
+    }
+    @keyframes leftToRight {
+        from { right: 0; opacity: 1;}
+        to { right: -300px; opacity: 0;}
+    }
+    .paint__option.active{
+        display: flex;
+    }
+    .paint__option-panel--bar{
+        height: 100%!important;
+        min-height: 40px;
+        width: 80px!important;
+        background: rgb(46, 185, 219)!important;
+        color: white;
+        display: flex!important;
+        justify-content: center;
+        align-items: center;
+    }
+    .paint__option-panel--bar button{
+        height: 100%;
+    }
+    .paint__option-panel--bar i{
+        font-size: 20px;
+    }
+}
+@media (max-width: 768px) {
+    /* styles for popup */
+    #popup{
+        width: 80%;
+        top: 67%;
+    }
+    /* styles for tool bar */
+    .paint button{
+        width: auto;
+    }
+    p.p-hidden{
+        display: none;
+    }
+    .paint__table-geometry{
+        left: -245%;
+    }
+}
+@media (max-width: 576px){
+    /* styles for picker */
+    .paint__addcolor{
+        width: 100vw;
+    }
+    .paint__picker-container{
+        flex-direction: column;
+    }
+    /* styles for popup */
+    #popup{
+        width: 90%;
+        height: 650px;
+        top: 67%;
+    }
+    .popup__content{
+        flex-direction: column;
+    }
+    .popup__content-left{
+        width: 100%;
+        height: 40%;
+    }
+    .popup__content-right{
+        width: 100%;
+    }
+    #popup select{
+        min-height: 120%;
+    }
+    .popup__slider {
+        width: 60%;
+        height: 50%;
+        top: 21%;
+        left: 22%;
+    }
+    .popup__title{
+        margin-top: 0;
+        margin-bottom: 1rem;
+    }
+    .popup__label-button{
+        gap: 0.5rem;
+    }
+    .popup__content-left .popup__upload{
+        height: 80%;
+        width: 65%;
+    }
+    .popup__close{
+        z-index: 99999;
+    }
+    /* styles for left panel */
+    .paint__option{
+        width: 100%;
+    }
+}

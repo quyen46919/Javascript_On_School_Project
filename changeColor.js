@@ -1,7 +1,6 @@
 
 // Declare DOM variables
 var inputred = document.getElementById("input-red");
-console.log(inputred);
 var inputgreen = document.getElementById("input-green");
 var inputblue = document.getElementById("input-blue");
 var btnaadcolor = document.getElementById("btnAddColor");

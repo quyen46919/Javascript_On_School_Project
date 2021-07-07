@@ -7,13 +7,13 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
     
 </head>
 <body>
     <!-- show popup -->
     <div id="popup">
         <div class="popup__content">
-            <!-- popup-left -->
             <div class="popup__close">
                 <div class="popup__close-btn " id="cancer-popup">
                     <i class="fas fa-times"></i>
@@ -21,39 +21,38 @@
             </div>
             <div class="popup__content-left">
                 <div class="popup__title">
-                    <h2>Vẽ Theo Mẫu</h2>
-                    <span>Hãy Chọn 1 Bức Ảnh</span>
+                    <h2>Vẽ Theo Mẫu</h2>    
                 </div>
-                <label class="popup__upload" for="firstimg">
-                    <div class="popup__photos">
-                        <i class="far fa-file-image" id="file-image"></i>
-                    </div> 
-                    <input type="file" name="" id="firstimg" class="upload">
-                    <img id="displayImg" alt=""></img>
-                    <span>--Vẽ Tuỳ Chọn--</span>
-                </label>
-                <div class="popup__btn-optional">
-                    <button class="popup__btn choose--styles" id="checked">CREATE</button> 
+                <div class="popup__label-button">
+                    <label class="popup__upload" for="firstimg">
+                        <div class="popup__photos">
+                            <i class="far fa-file-image" id="file-image"></i>
+                        </div> 
+                        <input type="file" name="" id="firstimg" class="upload">
+                        <img id="displayImg" alt=""></img>
+                    </label>
+                    <div class="popup__btn-optional">
+                        <button class="popup__btn choose--styles" id="checked">Vẽ ảnh này</button> 
+                    </div>
                 </div>
             </div> 
-            <!-- popup-right -->
             <div class="popup__content-right">
                 <div class="popup__select">
                     <div class="paint__select-theme">
-                        <span>Theme</span>
+                        <span>Chủ đề</span>
                         <select name="" id="select-theme">
-                            <option value="Animals">Animals</option>
-                            <option value="House">House</option>
+                            <option value="Animals">Động vật</option>
+                            <option value="House">Nhà ở</option>
                             <option value="Doraemon">Doraemon</option>
-                            <option value="Fruits">Fruits</option>
-                            <option value="Vehicle">Vehicle</option>
+                            <option value="Fruits">Trái cây</option>
+                            <option value="Vehicle">Xe cộ</option>
                         </select>
                     </div>
                     <div class="paint__select-decorate">
-                        <span>Decorate</span>
+                        <span>Trang trí</span>
                         <select name="" id="select-decorate">
-                            <option value="No Color">No Color</option>
-                            <option value="Colorful">Colorful</option>
+                            <option value="No Color">Không màu</option>
+                            <option value="Colorful">Có màu</option>
                         </select>
                     </div>
                 </div> 
@@ -87,18 +86,18 @@
                     <div class="paint__history">
                         <button id="undo">
                             <i class="fas fa-undo"></i>
-                            <p>Quay lại</p>
+                            <p class="p-hidden">Quay lại</p>
                         </button>
                         <button id="clear">
                             <i class="fas fa-eraser"></i>
-                            <p>Làm mới</p>
+                            <p class="p-hidden">Làm mới</p>
                         </button>
                     </div>
                     <div class="paint__draw">
                         <div class="paint__geometry">
                             <button class="paint__btn-table">
                                 <i class="fab fa-accusoft"></i>
-                                <p>Vẽ Hình Học</p>
+                                <p class="p-hidden">Vẽ Hình Học</p>
                             </button>
                             <div class="paint__table-geometry">
                                 <div class="paint__draw-geometry">
@@ -142,11 +141,14 @@
                         </div>
                         <button class="paint__show-popup" id="default">
                             <i class="fas fa-scroll"></i>
-                            <p>Vẽ Theo Mẫu</p>
+                            <p class="p-hidden">Vẽ Theo Mẫu</p>
                         </button>
                         <button class="paint__default-canvas">
                             <i class="fas fa-broom"></i>
-                            <p>Vẽ Mặc Định</p>
+                            <p class="p-hidden">Vẽ Mặc Định</p>
+                        </button>
+                        <button class="paint__option-panel--bar paint__open">
+                            <i class="fas fa-bars"></i>
                         </button>
                     </div>
                 </div>
@@ -188,7 +190,12 @@
             <div class="paint__option">
                 
                 <div class="paint__pen-material">
-                    <div class="paint__title">CHẤT LIỆU BÚT</div>
+                    <div class="paint__pen--material">
+                        <div class="paint__title">CHẤT LIỆU BÚT</div>
+                        <button class="paint__option-panel--bar paint__close">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
                     <div class="paint__pen-material--content">
                         <div class="paint__material paint__material--normal active">
                             <i class="fas fa-pen"></i>
@@ -212,7 +219,7 @@
                         <span>Size: </span>
                         <div class="selectValue selectValue1"></div>
                     </div>
-                    <input type="range" min="1" max="50" value="10" id="slider1">
+                    <input type="range" min="1" max="50" value="5" id="slider1">
                 </div>
                 <!-- end paint__pen-size -->
 
