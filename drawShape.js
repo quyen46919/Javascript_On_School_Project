@@ -35,12 +35,14 @@ radiusDeg.addEventListener('keyup', (e) => {
 });
 polygonSides.addEventListener('keyup', (e) => {
     polygonSideValue = +e.target.value;
-})
+});
 
 // function
 // bặt tắt show bảng tuỳ chọn
 function toggleTableGeometry() {
     table_geometry.classList.toggle('active');
+    table_img.classList.remove('active');
+    img_canvas.classList.remove('active');
     removeTableGeometry();
 }
 //lấy vị trí bắt đầu click
@@ -200,11 +202,7 @@ function drawRectangle(e, startPos) {
     context.lineWidth = draw_width;
     fillValueCheck();
     context.beginPath();
-    context.rect(
-        startPos.x,
-        startPos.y,
-        mouse.x, mouse.y
-    );
+    context.rect(startPos.x, startPos.y, mouse.x, mouse.y);
     context.stroke();
     e.preventDefault();
 }
@@ -215,14 +213,10 @@ function drawSquare(e, startPos) {
     undoClick();
     mouseEvent(e);
     context.strokeStyle = draw_color;
-    context.lineWidth = draw_width ;
+    context.lineWidth = draw_width;
     fillValueCheck();
     context.beginPath();
-    context.rect(
-        startPos.x,
-        startPos.y,
-        mouse.x, mouse.x
-    );
+    context.rect(startPos.x, startPos.y, mouse.x, mouse.x);
     context.stroke();
     e.preventDefault();
 }
@@ -247,7 +241,6 @@ function drawCircle(e, startPos, x, y) {
         context.restore();
     }
 }
-  
 
 // vẽ hình tam giác + đa giác
 function drawPolygon(e, startPos, sides, angle) {
@@ -258,11 +251,11 @@ function drawPolygon(e, startPos, sides, angle) {
     context.lineWidth = draw_width;
     fillValueCheck();
     var coordinates = [],
-    radius = Math.sqrt(
-        Math.pow(startPos.x - endPosX, 2) +
-            Math.pow(startPos.y - endPosY, 2),
-    ),
-    index = 0;
+        radius = Math.sqrt(
+            Math.pow(startPos.x - endPosX, 2) +
+                Math.pow(startPos.y - endPosY, 2),
+        ),
+        index = 0;
     context.beginPath();
     for (index = 0; index < sides; index++) {
         coordinates.push({
