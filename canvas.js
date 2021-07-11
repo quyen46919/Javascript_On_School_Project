@@ -1,7 +1,4 @@
 // GET DOM
-const $ = document.querySelector.bind(document);
-const $$ = document.querySelectorAll.bind(document);
-
 const canvas = $('#canvas');
 const clear_btn = $('#clear');
 const undo_btn = $('#undo');
@@ -29,17 +26,19 @@ context.fillStyle = start_background_color;
 context.fillRect(0, 0, canvas.width, canvas.height);
 
 const mouse = {
-    x: 0, y: 0,                 
-    lastX: 0, lastY: 0,                
-}
+    x: 0,
+    y: 0,
+    lastX: 0,
+    lastY: 0,
+};
 function mouseEvent(event) {
     var bounds = canvas.getBoundingClientRect();
     //get the mouse coordinates, subtract the canvas top left and any scrolling
     mouse.x = event.pageX - bounds.left - scrollX;
     mouse.y = event.pageY - bounds.top - scrollY;
 
-    mouse.x /= bounds.width; 
-    mouse.y /= bounds.height; 
+    mouse.x /= bounds.width;
+    mouse.y /= bounds.height;
 
     //then scale to canvas coordinates by multiplying the normalized coords with the canvas resolution
     mouse.x *= canvas.width;
@@ -66,7 +65,7 @@ function undo() {
 }
 
 function CtrlZ(e) {
-    var evtobj = window.event? e : e
+    var evtobj = window.event ? e : e;
     if (evtobj.keyCode == 90 && evtobj.ctrlKey) undo();
 
     if (evtobj.keyCode == 46 && evtobj.ctrlKey) clearCanvas();

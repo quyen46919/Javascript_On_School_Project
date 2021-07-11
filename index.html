@@ -11,307 +11,354 @@
     
 </head>
 <body>
-    <!-- show popup -->
-    <div id="popup">
-        <div class="popup__content">
-            <div class="popup__close">
-                <div class="popup__close-btn " id="cancer-popup">
-                    <i class="fas fa-times"></i>
-                </div>
+     <!-- loading -->
+    <!-- Author: Long -->  
+    <div class="loading">
+        <div class="loading__line">
+          <div class="loading__inner"></div>
+        </div>
+    </div>
+    <!-- end loading -->
+
+     <div id="canvas-project">
+        <!-- show form enter name -->
+        <div class="paint__name-canvas">
+            <span class="paint__title-save">Nhập tên tác phẩm</span>
+            
+            <input type="text" class="paint__input-name" placeholder="Nhập tên tác phẩm...">
+            <span class="paint__error-input">&nbsp;</span>
+            <div class="paint__btn-save">
+                 <button type="button" class="paint__btn-create">Save</button>
+                 <button type="button" class="paint__btn-cancel">Cancel</button>
             </div>
-            <div class="popup__content-left">
-                <div class="popup__title">
-                    <h2>Vẽ Theo Mẫu</h2>    
-                </div>
-                <div class="popup__label-button">
-                    <label class="popup__upload" for="firstimg">
-                        <div class="popup__photos">
-                            <i class="far fa-file-image" id="file-image"></i>
-                        </div> 
-                        <input type="file" name="" id="firstimg" class="upload">
-                        <img id="displayImg" alt=""></img>
-                    </label>
-                    <div class="popup__btn-optional">
-                        <button class="popup__btn choose--styles" id="checked">Vẽ ảnh này</button> 
+        </div>
+        <!-- show popup -->
+        <div id="popup">
+            <div class="popup__content">
+                <div class="popup__close">
+                    <div class="popup__close-btn " id="cancer-popup">
+                        <i class="fas fa-times"></i>
                     </div>
                 </div>
-            </div> 
-            <div class="popup__content-right">
-                <div class="popup__select">
-                    <div class="paint__select-theme">
-                        <span>Chủ đề</span>
-                        <select name="" id="select-theme">
-                            <option value="Animals">Động vật</option>
-                            <option value="House">Nhà ở</option>
-                            <option value="Doraemon">Doraemon</option>
-                            <option value="Fruits">Trái cây</option>
-                            <option value="Vehicle">Xe cộ</option>
-                        </select>
+                <div class="popup__content-left">
+                    <div class="popup__title">
+                        <h2>Vẽ Theo Mẫu</h2>    
                     </div>
-                    <div class="paint__select-decorate">
-                        <span>Trang trí</span>
-                        <select name="" id="select-decorate">
-                            <option value="No Color">Không màu</option>
-                            <option value="Colorful">Có màu</option>
-                        </select>
+                    <div class="popup__label-button">
+                        <label class="popup__upload" for="firstimg">
+                            <div class="popup__photos">
+                                <i class="far fa-file-image" id="file-image"></i>
+                            </div> 
+                            <input type="file" name="" id="firstimg" class="upload">
+                            <img id="displayImg" alt=""></img>
+                        </label>
+                        <div class="popup__btn-optional">
+                            <button class="popup__btn choose--styles" id="checked">Vẽ ảnh này</button> 
+                        </div>
                     </div>
                 </div> 
-                <div class="popup__slides">
-                    <div class="popup__slider">
-                        <div class="popup__over">
+                <div class="popup__content-right">
+                    <div class="popup__select">
+                        <div class="paint__select-theme">
+                            <span>Chủ đề</span>
+                            <select name="" id="select-theme">
+                                <option value="Animals">Động vật</option>
+                                <option value="House">Nhà ở</option>
+                                <option value="Doraemon">Doraemon</option>
+                                <option value="Fruits">Trái cây</option>
+                                <option value="Vehicle">Xe cộ</option>
+                            </select>
                         </div>
-                    </div>  
-                    <div class="popup__btn-pos">
-                        <div class="popup__btn-prev">
-                            <i class="fas fa-chevron-up"></i>
+                        <div class="paint__select-decorate">
+                            <span>Trang trí</span>
+                            <select name="" id="select-decorate">
+                                <option value="No Color">Không màu</option>
+                                <option value="Colorful">Có màu</option>
+                            </select>
                         </div>
-                        <div class="popup__btn-next">
-                            <i class="fas fa-chevron-down"></i>
+                    </div> 
+                    <div class="popup__slides">
+                        <div class="popup__slider">
+                            <div class="popup__over">
+                            </div>
+                        </div>  
+                        <div class="popup__btn-pos">
+                            <div class="popup__btn-prev">
+                                <i class="fas fa-chevron-up"></i>
+                            </div>
+                            <div class="popup__btn-next">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end show popup -->
+        <!-- end show popup -->
 
 
-    <div class="paint" id="blur">
-        <!-- <div class="paint__header">
-            <h1>Painting app</h1>
-        </div> -->
-        <div class="paint__main-part">
-            <div class="paint__options-canvas">
-                <div class="paint__direc">
-                    <div class="paint__history">
-                        <button id="undo">
-                            <i class="fas fa-undo"></i>
-                            <p class="p-hidden">Quay lại</p>
-                        </button>
-                        <button id="clear">
-                            <i class="fas fa-eraser"></i>
-                            <p class="p-hidden">Làm mới</p>
-                        </button>
-                    </div>
-                    <div class="paint__draw">
-                        <div class="paint__geometry">
-                            <button class="paint__btn-table">
-                                <i class="fab fa-accusoft"></i>
-                                <p class="p-hidden">Vẽ Hình Học</p>
+        <div class="paint" id="blur">
+            <!-- <div class="paint__header">
+                <h1>Painting app</h1>
+            </div> -->
+            <div class="paint__main-part">
+                <div class="paint__options-canvas">
+                    <div class="paint__direc">
+                        <div class="paint__history">
+                            <button id="listImg">
+                                <i class="fas fa-save"></i>
+                                <p class="p-hidden">Lưu</p>
                             </button>
-                            <div class="paint__table-geometry">
-                                <div class="paint__draw-geometry">
-                                    <button class="geometry btn__horizontal-rule">
-                                        <img src="./images/substract.png" alt="">
-                                    </button>
-                                    <button class="geometry btn__square">
-                                        <img src="./images/square.png" alt="">
-                                    </button>
-                                    <button class="geometry btn__rectangle">
-                                        <img src="./images/rectangular-geometrical-shape-outline.png" alt="">
-                                    </button>
-                                    <button class="geometry btn__circle">
-                                        <img src="./images/dry-clean.png" alt="">
-                                    </button>
-                                    <button class="geometry btn__triangle">
-                                        <img src="./images/triangle-outline-variant.png" alt="">
-                                    </button>
-                                    <button class="geometry btn__hexagon">
-                                        <img src="./images/hexagon.png" alt="">
-                                    </button>
-                                    <!-- <button class="geometry btn__circle">
-                                        Text
-                                    </button> -->
+                            <div class="paint__save-img">
+                                <button id="save">
+                                    <i class="fas fa-clipboard-list"></i>
+                                    <p class="p-hidden"></p>Danh sách</p>
+                                </button>
+                                <div class="paint__table-img">
                                 </div>
-                                <div class="paint__custom-geometry">
-                                    <div class="paint__custom-geo--wrapper">
-                                        <div class="paint__fill">
-                                            <div class="paint__geometry--label">
-                                                <span>Làm đầy</span>
-                                            </div>
-                                            <input id="fillBox" type="checkbox" >
-                                        </div>
-                                        <div class="paint__Angle">
-                                            <div class="paint__geometry--label">
-                                                <span>Xoay góc</span>
-                                            </div>
-                                            <input id="polygonAngle" type="number" value="0">
-                                        </div>
+                                <div class="paint__img-canvas">
+                                </div> 
+                            </div>
+                            <button id="undo">
+                                <i class="fas fa-undo"></i>
+                                <p class="p-hidden">Quay lại</p>
+                            </button>
+                            <button id="clear">
+                                <i class="fas fa-eraser"></i>
+                                <p class="p-hidden">Làm mới</p>
+                            </button>
+                        </div>
+                        <div class="paint__draw">
+                            <div class="paint__geometry">
+                                <button class="paint__btn-table">
+                                    <i class="fab fa-accusoft"></i>
+                                    <p class="p-hidden">Vẽ Hình Học</p>
+                                </button>
+                                <div class="paint__table-geometry">
+                                    <div class="paint__draw-geometry">
+                                        <button class="geometry btn__horizontal-rule">
+                                            <img src="./images/substract.png" alt="">
+                                        </button>
+                                        <button class="geometry btn__square">
+                                            <img src="./images/square.png" alt="">
+                                        </button>
+                                        <button class="geometry btn__rectangle">
+                                            <img src="./images/rectangular-geometrical-shape-outline.png" alt="">
+                                        </button>
+                                        <button class="geometry btn__circle">
+                                            <img src="./images/dry-clean.png" alt="">
+                                        </button>
+                                        <button class="geometry btn__triangle">
+                                            <img src="./images/triangle-outline-variant.png" alt="">
+                                        </button>
+                                        <button class="geometry btn__hexagon">
+                                            <img src="./images/hexagon.png" alt="">
+                                        </button>
+                                        <!-- <button class="geometry btn__circle">
+                                            Text
+                                        </button> -->
                                     </div>
-                                    <div class="paint__custom-geo--wrapper">
-                                        <div class="paint__sides">
-                                            <div class="paint__geometry--label">
-                                                <span>Số cạnh đa giác</span>
+                                    <div class="paint__custom-geometry">
+                                        <div class="paint__custom-geo--wrapper">
+                                            <div class="paint__fill">
+                                                <div class="paint__geometry--label">
+                                                    <span>Làm đầy</span>
+                                                </div>
+                                                <input id="fillBox" type="checkbox" >
                                             </div>
-                                            <input id="polygonSides" type="number" value="6" min="4" max="12">
+                                            <div class="paint__Angle">
+                                                <div class="paint__geometry--label">
+                                                    <span>Xoay góc</span>
+                                                </div>
+                                                <input id="polygonAngle" type="number" value="0">
+                                            </div>
                                         </div>
-                                        <div class="paint__sides">
+                                        <div class="paint__custom-geo--wrapper">
+                                            <div class="paint__sides">
+                                                <div class="paint__geometry--label">
+                                                    <span>Số cạnh đa giác</span>
+                                                </div>
+                                                <input id="polygonSides" type="number" value="6" min="4" max="12">
+                                            </div>
+                                            <div class="paint__sides">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <button class="paint__show-popup" id="default">
+                                <i class="fas fa-scroll"></i>
+                                <p class="p-hidden">Vẽ Theo Mẫu</p>
+                            </button>
+                            <button class="paint__default-canvas">
+                                <i class="fas fa-broom"></i>
+                                <p class="p-hidden">Vẽ Mặc Định</p>
+                            </button>
+                            <button class="paint__option-panel--bar paint__open">
+                                <i class="fas fa-bars"></i>
+                            </button>
                         </div>
-                        <button class="paint__show-popup" id="default">
-                            <i class="fas fa-scroll"></i>
-                            <p class="p-hidden">Vẽ Theo Mẫu</p>
-                        </button>
-                        <button class="paint__default-canvas">
-                            <i class="fas fa-broom"></i>
-                            <p class="p-hidden">Vẽ Mặc Định</p>
-                        </button>
-                        <button class="paint__option-panel--bar paint__open">
-                            <i class="fas fa-bars"></i>
-                        </button>
                     </div>
+                    <!-- end paint__direc -->
+                    <div class="paint__canvas">
+                        <div class="paint__board"> 
+                            <img src="" alt="" class="paint__img">
+                        </div>
+                        <canvas id="canvas"></canvas>
+                        <div class="paint__show-hide-bgImg" id="icon-canvas">
+                            <i class="far fa-eye" id="icon-eye"></i>
+                        </div>
+                    </div>
+                    <!-- fix Nghia's div class -- Quyen -->
+                    <div class="paint__blur-bg"></div>
+                    <div class="paint__addcolor paint__addcolor-transform">
+                        <div class="paint__picker-title">
+                            <h3>Chọn màu</h3>
+                        </div>
+                        <div class="paint__picker-container">
+                            <div class="paint__picker-left">
+                                <canvas id="paint__background--canvas"></canvas> 
+                            </div>
+                            <div class="paint__picker-right" id="paint__input">
+                                <div class="paint__picker--show"></div>
+                                <label class="paint__picker--label">Red</label>
+                                <input  class="paint__picker-input" id="input-red"  type="number" value="0">
+                                <label class="paint__picker--label">Green</label>
+                                <input  class="paint__picker-input" id="input-blue" type="number" value="0">
+                                <label class="paint__picker--label" >Blue</label>
+                                <input  class="paint__picker-input" id="input-blue" type="number" value="0">
+                            </div>
+                        
+                        </div>
+                        <div class="paint__button--wrapper">
+                            <button class="paint__color-picker--button paint__picker--add">Chọn màu này</button>
+                            <button class="paint__color-picker--button paint__picker--cancel">Hủy</button>
+                        </div>
+                    </div>
+                    <!-- end paint__addcolor -->
                 </div>
-                <!-- end paint__direc -->
-                <div class="paint__canvas">
-                    <div class="paint__board"> 
-                        <img src="" alt="" class="paint__img">
-                    </div>
-                    <canvas id="canvas"></canvas>
-                </div>
-                <!-- fix Nghia's div class -- Quyen -->
-                <div class="paint__blur-bg"></div>
-                <div class="paint__addcolor paint__addcolor-transform">
-                    <div class="paint__picker-title">
-                        <h3>Chọn màu</h3>
-                    </div>
-                    <div class="paint__picker-container">
-                        <div class="paint__picker-left">
-                            <canvas id="paint__background--canvas"></canvas> 
-                        </div>
-                        <div class="paint__picker-right" id="paint__input">
-                            <div class="paint__picker--show"></div>
-                            <label class="paint__picker--label">Red</label>
-                            <input  class="paint__picker-input" id="input-red"  type="number" value="0">
-                            <label class="paint__picker--label">Green</label>
-                            <input  class="paint__picker-input" id="input-blue" type="number" value="0">
-                            <label class="paint__picker--label" >Blue</label>
-                            <input  class="paint__picker-input" id="input-blue" type="number" value="0">
-                        </div>
-                       
-                    </div>
-                    <div class="paint__button--wrapper">
-                        <button class="paint__color-picker--button paint__picker--add">Chọn màu này</button>
-                        <button class="paint__color-picker--button paint__picker--cancel">Hủy</button>
-                    </div>
-                </div>
-                <!-- end paint__addcolor -->
-            </div>
-            <div class="paint__option">
-                
-                <div class="paint__pen-material">
-                    <div class="paint__pen--material">
-                        <div class="paint__title">CHẤT LIỆU BÚT</div>
-                        <button class="paint__option-panel--bar paint__close">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                    <div class="paint__pen-material--content">
-                        <div class="paint__material paint__material--normal active">
-                            <i class="fas fa-pen"></i>
-                        </div>
-                        <div class="paint__material paint__material--inkpen">
-                            
-                            <i class="fas fa-pen-nib"></i>
-                        </div>
-                        <div class="paint__material paint__material--oil">
-                            <i class="fas fa-paint-brush"></i>
-                        </div>
-                        <div class="paint__material paint__material--spray">
-                            <i class="fas fa-spray-can"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="paint__pen-size">
-                    <div class="paint__title">KÍCH CỠ</div>
+                <div class="paint__option">
                     
-                    <div class="paint__selector1">
-                        <span>Size: </span>
-                        <div class="selectValue selectValue1"></div>
+                    <div class="paint__pen-material">
+                        <div class="paint__pen--material">
+                            <div class="paint__title">CHẤT LIỆU BÚT</div>
+                            <button class="paint__option-panel--bar paint__close">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="paint__pen-material--content">
+                            <div class="paint__material paint__material--normal active">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <div class="paint__material paint__material--inkpen">
+                                
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <div class="paint__material paint__material--oil">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <div class="paint__material paint__material--spray">
+                                <i class="fas fa-spray-can"></i>
+                            </div>
+                        </div>
                     </div>
-                    <input type="range" min="1" max="50" value="5" id="slider1">
-                </div>
-                <!-- end paint__pen-size -->
+                    <div class="paint__pen-size">
+                        <div class="paint__title">KÍCH CỠ</div>
+                        
+                        <div class="paint__selector1">
+                            <span>Size: </span>
+                            <div class="selectValue selectValue1"></div>
+                        </div>
+                        <input type="range" min="1" max="50" value="5" id="slider1">
+                    </div>
+                    <!-- end paint__pen-size -->
 
-                <!-- FIX DIV CLASS CSS -->
-                <!-- Author: Quyen -->
-                <div class="paint__pen-opacity">
-                    <div class="paint__title">ĐỘ LÀM MỜ CỦA CỌ DẦU</div>
-                    <div class="paint__selector2">
-                        <span>Size: </span>
-                        <div class="selectValue selectValue2"></div>
+                    <!-- FIX DIV CLASS CSS -->
+                    <!-- Author: Quyen -->
+                    <div class="paint__pen-opacity">
+                        <div class="paint__title">ĐỘ LÀM MỜ CỦA CỌ DẦU</div>
+                        <div class="paint__selector2">
+                            <span>Size: </span>
+                            <div class="selectValue selectValue2"></div>
+                        </div>
+                        <input type="range" min="1" max="30" value="10" id="slider2">
                     </div>
-                    <input type="range" min="1" max="30" value="10" id="slider2">
-                </div>
-                <!-- end paint__pen-opacity -->
-                <div class="paint__change-color">
-                    <div class="paint__title">CHỌN MÀU</div>
-                    <div class="paint__pick-color">
-                        <div class="paint__show-color" id="changecolorbox"></div>
-                        <div class="paint__icon--wrapper">
-                            <i class="fas fa-eye-dropper"></i>
+                    <!-- end paint__pen-opacity -->
+                    <div class="paint__change-color">
+                        <div class="paint__title">CHỌN MÀU</div>
+                        <div class="paint__pick-color">
+                            <div class="paint__show-color" id="changecolorbox"></div>
+                            <div class="paint__icon--wrapper">
+                                <i class="fas fa-eye-dropper"></i>
+                            </div>
                         </div>
+                        <div class="paint__change-color-box">
+                            <div class="paint__color-line">
+                                <div class="paint__color-box" style="background-color: rgb(255, 255, 255);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(195, 195, 195);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(88, 88, 88);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(0, 0, 0);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(255, 0, 13);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(241, 73, 80 );"></div>
+                            </div>
+                            <div class="paint__color-line">
+                                <div class="paint__color-box" style="background-color: rgb(228, 64, 151 );"></div>
+                                <div class="paint__color-box" style="background-color: rgb(233, 102, 172);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(254, 162, 0);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(255, 251, 195);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(0, 168, 143);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(51, 185, 165);"></div>
+                            </div>
+                            <div class="paint__color-line">
+                                <div class="paint__color-box" style="background-color: rgb(243, 112, 32);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(245, 141, 77);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(249, 187, 148);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(253, 228, 212);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(247, 143, 30);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(203, 128, 1);"></div>  
+                            </div>
+                            <div class="paint__color-line">
+                                <div class="paint__color-box" style="background-color: rgb(255, 194, 15);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(255, 206, 63);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(254, 242, 0);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(254, 245, 51);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(141, 253, 7);"></div>
+                                <div class="paint__color-box" style="background-color: rgb(164, 253, 57);"></div>
+                            </div>
+                            <div class="paint__color-line">
+                            <div class="paint__color-box" style="background-color: rgb(0, 146, 206);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(51, 168, 216);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(1, 84, 164 );"></div>
+                            <div class="paint__color-box" style="background-color: rgb(52, 118, 182);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(107, 67, 155);"></div>
+                            <div class="paint__color-box" style="background-color: rgb(137, 105, 175);"></div>
+                            </div>
+                        </div>
+                        <button class="paint__change-color-btn" id="btnAddColor" style="display: none">Add Color</button>
                     </div>
-                    <div class="paint__change-color-box">
-                        <div class="paint__color-line">
-                            <div class="paint__color-box" style="background-color: rgb(255, 255, 255);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(195, 195, 195);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(88, 88, 88);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(0, 0, 0);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(255, 0, 13);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(241, 73, 80 );"></div>
-                        </div>
-                        <div class="paint__color-line">
-                            <div class="paint__color-box" style="background-color: rgb(228, 64, 151 );"></div>
-                            <div class="paint__color-box" style="background-color: rgb(233, 102, 172);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(254, 162, 0);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(255, 251, 195);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(0, 168, 143);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(51, 185, 165);"></div>
-                        </div>
-                        <div class="paint__color-line">
-                            <div class="paint__color-box" style="background-color: rgb(243, 112, 32);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(245, 141, 77);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(249, 187, 148);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(253, 228, 212);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(247, 143, 30);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(203, 128, 1);"></div>  
-                        </div>
-                        <div class="paint__color-line">
-                            <div class="paint__color-box" style="background-color: rgb(255, 194, 15);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(255, 206, 63);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(254, 242, 0);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(254, 245, 51);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(141, 253, 7);"></div>
-                            <div class="paint__color-box" style="background-color: rgb(164, 253, 57);"></div>
-                        </div>
-                        <div class="paint__color-line">
-                          <div class="paint__color-box" style="background-color: rgb(0, 146, 206);"></div>
-                          <div class="paint__color-box" style="background-color: rgb(51, 168, 216);"></div>
-                          <div class="paint__color-box" style="background-color: rgb(1, 84, 164 );"></div>
-                          <div class="paint__color-box" style="background-color: rgb(52, 118, 182);"></div>
-                          <div class="paint__color-box" style="background-color: rgb(107, 67, 155);"></div>
-                          <div class="paint__color-box" style="background-color: rgb(137, 105, 175);"></div>
-                        </div>
-                    </div>
-                    <button class="paint__change-color-btn" id="btnAddColor" style="display: none">Add Color</button>
                 </div>
             </div>
-            
         </div>
     </div>
     <!-- JAVASCRIPT LINK-->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-analytics.js"></script>     
+
+    <script src="getDataImgFirebase.js"></script>  
+
     <script src="index.js"></script>
     <script src="canvas.js"></script>
+    <script src="patternDrawing.js"></script> 
+    <script src="saveCanvas.js"></script>
+
+    
     <script src="resizePen.js"></script>
     <script src="changeColor.js"></script>
     <script src="./materialStyles/normalPenStyles.js"></script>
     <script src="./materialStyles/inkPenStyle.js"></script>   
     <script src="./materialStyles/oilPalmStyles.js"></script>   
     <script src="./materialStyles/sprayStyles.js"></script>
-    <script src="patternDrawing.js"></script>
     <script src="drawShape.js"></script>
 </body>
 </html>
