@@ -153,6 +153,13 @@
     }
 }
 @media (max-width: 400px){
+    /* styles for loading */
+    .loading h2{
+        font-size: 16vw;
+    }
+    .loading p{
+        transform: translateY(-50px);
+    }
     /* styles for popup */
     .popup__note{
         display: none;

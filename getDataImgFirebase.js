@@ -44,7 +44,9 @@ function getValue(val) {
                     arrImgs2 = dataImg;
                 }
                 getDataImgUrl(arrImgs1, arrImgs2);
-                hideLoadingCanvas();
+                setTimeout(function(){
+                    hideLoadingCanvas();
+                },3000)
             },
             function (error) {
                 console.error(error);

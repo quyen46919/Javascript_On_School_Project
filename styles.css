@@ -40,58 +40,50 @@ p, span { font-size: 13px!important;}
 /* ------------------------------------------------------- */
 /*start show loading data*/
 .loading {
-    background: #eaeaea4e;
-    width: 15%;
+    background: #252839;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.loading h2{
+    position: relative;
+    font-size: 6vw;
+    color: #252839;
+    -webkit-text-stroke: 0.3vw #383d52;
+    text-transform: uppercase;
+}
+.loading p{
+    font-size: 20px!important;
+    color: rgb(226, 226, 226);
+    transform: translateY(-50px);
+}
+.loading h2::before{
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
     height: 100%;
-    background-size: cover;
-    vertical-align: middle;
-    margin: 25.6% auto;
+    color: #01fe87;
+    -webkit-text-stroke: 0vw #383d52;
+    border-right: 5px solid #01fe87;
+    overflow: hidden;
+    animation: slide 4s linear infinite;
 }
-.loading__line{
-    height: 4px;
-    width: 100%;
-    background: #e8e8e8;
-    margin-top: 30%;
+@keyframes slide {
+    0%, 10%, 100%{
+        width: 0;
+    }
+    70%,90%{
+        width: 100%;
+    }
 }
-.loading__line .loading__inner{
-    width: 100%;
-    height: inherit;
-    background: #88724f;
-    animation: slide 2s ease-in-out infinite;
-}
-@keyframes slide{
-    0%{
-      transform-origin: left;
-      transform: scalex(0.3);
-    }
-    
-    25%{
-      transform-origin: left;
-      transform: scalex(1);
-    }
-    26%{
-      transform-origin: right;
-      transform: scalex(1);
-    }
-    50%{
-      transform-origin: right;
-      transform: scalex(0.3);
-    }
-   
-    75%{
-      transform-origin: right;
-      transform: scalex(1);
-    }
-    76%{
-      transform-origin: left;
-      transform: scalex(1);
-    }
-    100%{
-      transform-origin: left;
-      transform: scalex(0.3);
-    }
-  }
-
 /* general styles */
 #canvas-project {
     display: none;

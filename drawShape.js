@@ -135,7 +135,7 @@ function ChangeCircle() {
 function ChangeTriangle() {
     canvas.onmousemove = function (e) {
         if (is_drawing) {
-            drawPolygon(e, startPos, 3, deg * (Math.PI / 180));
+            drawPolygon(e, startPos, 3, (deg - 30) * (Math.PI / 180));
         }
         e.preventDefault();
     };
