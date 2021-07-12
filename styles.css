@@ -29,6 +29,10 @@ body{
 
     --blue: rgb(64, 170, 212);
     --gray: rgb(180,183,181);
+    --light-green: rgb(61, 209, 31);
+    --light-red: rgb(248, 202, 202);
+    --green: rgba(35, 196, 3, 0.667);
+    --pink: rgb(253 141 141) ;
 
     --box-shadow: 1px 2px 6px #e3e0e0;
 }
@@ -87,6 +91,7 @@ p, span { font-size: 13px!important;}
       transform: scalex(0.3);
     }
   }
+
 /* general styles */
 #canvas-project {
     display: none;
@@ -562,7 +567,7 @@ p, span { font-size: 13px!important;}
 }
 
 .popup__btn-optional {
-    width: 40%;
+    width: 65%;
     height: 40px;
 }
 .popup__btn-optional .popup__btn{
@@ -634,7 +639,7 @@ p, span { font-size: 13px!important;}
      min-height: 90%;
      background: #ffffff;
      border-radius: 3px;
-     border: 2px solid #6eb9f7;
+     border: 2px solid var(--green);
      outline: none;
      padding: 0 10px;
      cursor: pointer;
@@ -649,7 +654,7 @@ p, span { font-size: 13px!important;}
     min-height: 90%;
     background: #ffffff;
     border-radius: 3px;
-    border: 2px solid #f76e6e;
+    border: 2px solid var(--pink);
     outline: none;
     padding: 0 10px;
     cursor: pointer;
@@ -742,7 +747,8 @@ p, span { font-size: 13px!important;}
             box-shadow: 1px 2px 5px rgb(0,0,0,.4);
 }
 .popup__content-right .popup__slider.active{
-    border: 4px solid rgb(0, 171, 26);
+    border: 2px solid rgb(0, 171, 26);
+    box-sizing: border-box;
 }
 .popup__slider .popup__slide {
     cursor: pointer;
@@ -1049,6 +1055,14 @@ z-index: 2;
             border: 1px solid silver;
             border-radius: 5px;
             text-transform: uppercase;
+            color: white;
+        }
+        .paint__picker--add{
+            background: var(--green)!important;
+            
+        }
+        .paint__picker--cancel{
+            background: var(--pink)!important;
         }
 
 /* code for left panel */
@@ -1380,7 +1394,7 @@ input[type=range] {
 
 .paint__table-img {
     width: 280px;
-    height: 200px;
+    height: auto;
     background: #fff;
     z-index: 1000;
     position: absolute;
@@ -1396,6 +1410,9 @@ input[type=range] {
     left: 0%;
     top: -6%;
 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 .paint__table-img:after{
     content: '';
@@ -1427,7 +1444,6 @@ input[type=range] {
     width: 96%;
     height: 40px;
     background: #fafafa;
-    margin-bottom: 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 1px 1px rgb(0 0 0 / 10%);
     display: flex;
@@ -1474,10 +1490,10 @@ input[type=range] {
     font-size: 15px;
 }
 .paint__img-option button#save-canvas {
-    color: #90cc8dce;
+    color: var(--green);
 }
 .paint__img-option button#delete {
-    color: #cc8d8dce;
+    color: var(--pink);
 }
 .paint__img-option button#seen {
     color: #afafafce;
@@ -1486,11 +1502,11 @@ input[type=range] {
     color: #fff;
 }
 .paint__img-option button#save-canvas:hover {
-    background: #90cc8dce;
+    background: var(--green);
     color: #fff;
 }
 .paint__img-option button#delete:hover {
-    background: #cc8d8dce;
+    background: var(--pink);
     color: #fff;
 }
 .paint__img-option button#seen:hover {
@@ -1501,20 +1517,21 @@ input[type=range] {
 
 /*luu lai*/
 .paint__name-canvas {
-    width: 232px;
+    width: 260px;
     position: fixed;
-    height: 120px;
+    height: 170px;
     background: #fff;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 1px 5px 0px #4e4e4e;
     border: 2px solid #d5d5d5;
     font-family: 'Fira Sans', sans-serif;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
     transition: 0.15s ease-in-out;
     visibility: hidden;
     opacity: 0;
@@ -1565,35 +1582,38 @@ span.paint__error-input {
 .paint__btn-save {
     display: flex;
     height: 40px;
-    width: 75%;
-    transform: translate(20px, -12px);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1rem;
     justify-content: space-between;
 }
 .paint__btn-save .paint__btn-create {
     width: 110px;
-    background-color: rgb(231, 248, 202);
+    background-color: var(--green);
     box-shadow: var(--box-shadow);
     border-radius:5px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: 0.25s;
+    color: white;
 }
 .paint__btn-save .paint__btn-create:hover {
     width: 110px;
-    background-color: rgb(215, 248, 158);
+    background-color: var(--light-green);
     box-shadow: var(--box-shadow);
 }
 .paint__btn-save .paint__btn-cancel {
     width: 100px;
     margin-left: 44px;
     box-shadow: var(--box-shadow);
-    background-color: rgb(248, 202, 202);
+    background-color: var(--pink);
     border-radius:5px;
     outline: none;
     border: none;
     cursor: pointer;
     transition: 0.25s;
+    color: white;
 }
 .paint__btn-save .paint__btn-cancel:hover {
     width: 100px;

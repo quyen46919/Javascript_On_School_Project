@@ -64,14 +64,14 @@ function undo() {
     }
 }
 
-function CtrlZ(e) {
+function keyboardShortcuts(e) {
     var evtobj = window.event ? e : e;
     if (evtobj.keyCode == 90 && evtobj.ctrlKey) undo();
 
     if (evtobj.keyCode == 46 && evtobj.ctrlKey) clearCanvas();
 }
 
-document.onkeydown = CtrlZ;
+document.onkeydown = keyboardShortcuts;
 clear_btn.addEventListener('click', clearCanvas);
 undo_btn.addEventListener('click', undo);
 // funtions
