@@ -220,6 +220,7 @@ function getImgDataSaveFile(data) {
 
 //chức năng delete img_content
 function deleteImgData(i, dataImgSav) {
+    showImgCanvas(null, dataImgSav[i].url_img);
     dataImgSav.splice(i, 1);
     localStorage.setItem('img_products', JSON.stringify(dataImgSav));
     setImgSaveMode(dataImgSav);
